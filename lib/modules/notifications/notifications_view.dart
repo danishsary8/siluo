@@ -12,7 +12,7 @@ class NotificationsView extends StatelessWidget {
     final notificationsCtrl = Get.find<NotificationsController>();
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF7F7FB),
+      backgroundColor: const Color(0xFFF3F0FF),
       appBar: AppBar(
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.white,

@@ -166,7 +166,7 @@ class _AtelierHeritageArchiveViewState extends State<AtelierHeritageArchiveView>
     final activeEra = _eras[_selectedEraIndex];
 
     return Scaffold(
-      backgroundColor: isDark ? const Color(0xFF0A0A0D) : const Color(0xFFF7F5F0),
+      backgroundColor: isDark ? const Color(0xFF0B0917) : const Color(0xFFF3F0FF),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -447,7 +447,7 @@ class _AtelierHeritageArchiveViewState extends State<AtelierHeritageArchiveView>
                       fontSize: 10,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 1.0,
-                      color: isDark ? AppColors.champagneGold : const Color(0xFF7A6240),
+                      color: isDark ? AppColors.champagneGold : const Color(0xFF4B2FD6),
                     ),
                   ),
                 ],
@@ -538,7 +538,7 @@ class _AtelierHeritageArchiveViewState extends State<AtelierHeritageArchiveView>
         Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: isDark ? const Color(0xFF141418) : Colors.white,
+            color: isDark ? const Color(0xFF17132C) : Colors.white,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
               color: isDark ? Colors.white12 : Colors.black12,

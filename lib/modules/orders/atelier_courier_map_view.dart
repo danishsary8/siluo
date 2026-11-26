@@ -134,7 +134,7 @@ class _AtelierCourierMapViewState extends State<AtelierCourierMapView>
                     _buildRoundButton(
                       icon: CupertinoIcons.phone_fill,
                       color: AppColors.champagneGold,
-                      iconColor: Colors.black,
+                      iconColor: Colors.white,
                       onTap: _callChauffeur,
                     ),
                   ],
@@ -231,7 +231,7 @@ class _AtelierCourierMapViewState extends State<AtelierCourierMapView>
                       borderRadius: 20,
                       blur: 20,
                       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                      color: const Color(0xFF141418).withValues(alpha: 0.88),
+                      color: const Color(0xFF17132C).withValues(alpha: 0.88),
                       borderColor: Colors.white10,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -488,7 +488,7 @@ class _HauteCoutureMapPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     // 1. Dark Velvet Base Map Background
-    final bgPaint = Paint()..color = const Color(0xFF0A0A0D);
+    final bgPaint = Paint()..color = const Color(0xFF0B0917);
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), bgPaint);
 
     // 2. Parisian City Grid Lines (Haussmann Boulevards)

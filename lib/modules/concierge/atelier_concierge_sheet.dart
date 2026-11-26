@@ -147,10 +147,10 @@ class _AtelierConciergeSheetState extends State<AtelierConciergeSheet> {
                 Container(
                   padding: const EdgeInsets.all(18),
                   decoration: BoxDecoration(
-                    color: isDark ? AppColors.surfaceDark : const Color(0xFFF7F5F0),
+                    color: isDark ? AppColors.surfaceDark : const Color(0xFFF3F0FF),
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
-                      color: isDark ? AppColors.cardBorderDark : const Color(0xFFEADBCE),
+                      color: isDark ? AppColors.cardBorderDark : const Color(0xFFE7E2F8),
                     ),
                   ),
                   child: Row(
@@ -249,7 +249,7 @@ class _AtelierConciergeSheetState extends State<AtelierConciergeSheet> {
                           child: const Icon(
                             CupertinoIcons.videocam_fill,
                             size: 16,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                         const SizedBox(width: 12),

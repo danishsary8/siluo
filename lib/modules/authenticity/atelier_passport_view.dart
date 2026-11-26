@@ -80,7 +80,7 @@ class _AtelierPassportViewState extends State<AtelierPassportView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF070709),
+      backgroundColor: const Color(0xFF07060F),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -391,7 +391,7 @@ class _AtelierPassportViewState extends State<AtelierPassportView>
                 decoration: BoxDecoration(
                   color: _isNfcTapped
                       ? AppColors.inStockGreen.withValues(alpha: 0.15)
-                      : const Color(0xFF141418),
+                      : const Color(0xFF17132C),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     color: _isNfcTapped

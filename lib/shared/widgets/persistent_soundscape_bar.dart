@@ -62,7 +62,7 @@ class _PersistentSoundscapeBarState extends State<PersistentSoundscapeBar>
               blur: 20,
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               color: isDark
-                  ? const Color(0xFF16161B).withValues(alpha: 0.88)
+                  ? const Color(0xFF1A1631).withValues(alpha: 0.88)
                   : Colors.white.withValues(alpha: 0.92),
               borderColor: AppColors.champagneGold.withValues(alpha: 0.35),
               shadows: [

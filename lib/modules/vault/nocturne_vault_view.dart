@@ -56,7 +56,7 @@ class _NocturneVaultViewState extends State<NocturneVaultView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF070709),
+      backgroundColor: const Color(0xFF07060F),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

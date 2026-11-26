@@ -64,12 +64,15 @@ Digital Wardrobe · Swatch Ordering · Heritage Archive · Acoustic Soundscapes
 
 | Token | Hex | Used for |
 | :--- | :--- | :--- |
-| **SILOU Coral** | `#FF4838` | Brand accent, badges, active states |
-| **Champagne Gold** | `#C5A880` | Atelier / VIP highlights, selected states |
-| **Obsidian CTA** | `#1C1917` | Primary buttons |
-| **Stone White** | `#FAFAF9` | Light canvas |
-| **Obsidian Canvas** | `#0E0E10` | Dark canvas |
-| **Flash Amber** | `#FF9800` | Deals & urgency |
+| **Electric Violet** | `#6E4BFF` | Main accent, selected states, highlights |
+| **SILOU Coral** | `#FF4D3D` | Brand mark, badges, primary shop CTAs |
+| **Midnight Ink** | `#1B1442` | Primary buttons |
+| **Ink Indigo** | `#16112F` | Headings & body text |
+| **Lavender Mist** | `#F7F5FF` | Light canvas |
+| **Midnight Indigo** | `#0C0A19` | Dark canvas |
+| **Flash Tangerine** | `#FF8A00` | Deals & urgency |
+
+A violet → coral **signature gradient** (`AppColors.signatureGradient`) is used on the splash screen and hero cards.
 
 - **Light & dark themes** — switchable from Home or Profile.
 - **Motion** — press-scale buttons, staggered list entrances, animated switchers, custom curves (`core/utils/motion_curves.dart`).
@@ -137,10 +140,10 @@ flutter test
 ### Web build (Netlify)
 
 ```bash
-flutter build web --release
+flutter build web --release --no-web-resources-cdn
 ```
 
-`netlify.toml` already publishes `build/web` with SPA redirects and security headers.
+`--no-web-resources-cdn` bundles the CanvasKit renderer so the site doesn't depend on Google's CDN. `netlify.toml` already publishes `build/web` with SPA redirects and security headers.
 
 ---
 

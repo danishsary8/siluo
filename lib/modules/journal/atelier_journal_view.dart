@@ -354,7 +354,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                                 gradient: LinearGradient(
-                                  colors: [AppColors.champagneGold, Color(0xFF7A6240)],
+                                  colors: [AppColors.champagneGold, Color(0xFF4B2FD6)],
                                 ),
                               ),
                               child: Center(
@@ -638,7 +638,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
                   fontWeight: FontWeight.w600,
                   fontStyle: FontStyle.italic,
                   height: 1.4,
-                  color: isDark ? AppColors.champagneGold : const Color(0xFF7A6240),
+                  color: isDark ? AppColors.champagneGold : const Color(0xFF4B2FD6),
                 ),
               ),
             ),

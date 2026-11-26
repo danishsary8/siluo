@@ -109,7 +109,7 @@ class _AtelierPackagingSheetState extends State<AtelierPackagingSheet> {
     return Container(
       constraints: BoxConstraints(maxHeight: size.height * 0.88),
       decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF0C0C0F) : AppColors.canvasLight,
+        color: isDark ? const Color(0xFF0C0A19) : AppColors.canvasLight,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
         border: Border.all(
           color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight,
@@ -367,7 +367,7 @@ class _AtelierPackagingSheetState extends State<AtelierPackagingSheet> {
                   Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: isDark ? const Color(0xFF18181D) : const Color(0xFFF9F7F2),
+                      color: isDark ? const Color(0xFF1B1733) : const Color(0xFFF5F2FF),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(
                         color: AppColors.champagneGold.withValues(alpha: 0.4),

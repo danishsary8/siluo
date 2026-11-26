@@ -328,14 +328,14 @@ class _AtelierRunwayStoryViewState extends State<AtelierRunwayStoryView>
                             ),
                             child: Row(
                               children: [
-                                const Icon(CupertinoIcons.tag_fill, size: 12, color: Colors.black),
+                                const Icon(CupertinoIcons.tag_fill, size: 12, color: Colors.white),
                                 const SizedBox(width: 4),
                                 Text(
                                   _showTagCard ? 'HIDE' : 'VIEW PIECE',
                                   style: const TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w800,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     letterSpacing: 0.5,
                                   ),
                                 ),

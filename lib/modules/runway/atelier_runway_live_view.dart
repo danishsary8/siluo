@@ -295,7 +295,7 @@ class _AtelierRunwayLiveViewState extends State<AtelierRunwayLiveView>
                       child: Center(
                         child: Text(
                           activeComment['author']![0],
-                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.black),
+                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.white),
                         ),
                       ),
                     ),
@@ -451,7 +451,7 @@ class _AtelierRunwayLiveViewState extends State<AtelierRunwayLiveView>
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.champagneGold,
-                        foregroundColor: Colors.black,
+                        foregroundColor: Colors.white,
                         shape: const StadiumBorder(),
                         padding: const EdgeInsets.symmetric(horizontal: 14),
                       ),

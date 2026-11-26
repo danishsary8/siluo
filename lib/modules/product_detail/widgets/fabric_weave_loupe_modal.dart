@@ -68,7 +68,7 @@ class _FabricWeaveLoupeModalState extends State<FabricWeaveLoupeModal> {
     return Container(
       height: size.height * 0.88,
       decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF0C0C0F) : AppColors.canvasLight,
+        color: isDark ? const Color(0xFF0C0A19) : AppColors.canvasLight,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
         border: Border.all(
           color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight,

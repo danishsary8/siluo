@@ -125,20 +125,21 @@ class _AccountPrimaryButtonState extends State<AccountPrimaryButton> {
             height: 56,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: dark ? AppColors.champagneGold : AppColors.ctaDark,
+              gradient: dark ? AppColors.signatureGradient : null,
+              color: dark ? null : AppColors.ctaDark,
               borderRadius: BorderRadius.circular(18),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (widget.icon != null) ...[
-                  Icon(widget.icon, size: 18, color: dark ? AppColors.ctaDark : Colors.white),
+                  Icon(widget.icon, size: 18, color: Colors.white),
                   const SizedBox(width: 10),
                 ],
                 Text(
                   widget.label.toUpperCase(),
                   style: AppTypography.buttonLabel(
-                    color: dark ? AppColors.ctaDark : Colors.white,
+                    color: Colors.white,
                   ),
                 ),
               ],

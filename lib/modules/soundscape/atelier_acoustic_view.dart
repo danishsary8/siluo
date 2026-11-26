@@ -138,7 +138,7 @@ class _AtelierAcousticViewState extends State<AtelierAcousticView>
                           height: 100,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: const Color(0xFF16161B),
+                            color: const Color(0xFF1A1631),
                             border: Border.all(
                               color: AppColors.champagneGold,
                               width: 2,
@@ -287,7 +287,7 @@ class _AtelierAcousticViewState extends State<AtelierAcousticView>
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: const Color(0xFF131317),
+              color: const Color(0xFF161229),
               borderRadius: BorderRadius.circular(22),
               border: Border.all(color: Colors.white10),
             ),

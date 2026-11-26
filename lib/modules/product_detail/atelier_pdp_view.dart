@@ -318,7 +318,7 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                               : AppColors.champagneLight,
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: isDark ? AppColors.cardBorderDark : const Color(0xFFEADBCE),
+                            color: isDark ? AppColors.cardBorderDark : const Color(0xFFE7E2F8),
                           ),
                         ),
                         child: Row(

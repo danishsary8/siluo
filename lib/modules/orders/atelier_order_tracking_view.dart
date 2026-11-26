@@ -299,7 +299,7 @@ class AtelierOrderTrackingView extends StatelessWidget {
             child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.champagneGold,
-                foregroundColor: Colors.black,
+                foregroundColor: Colors.white,
                 shape: const StadiumBorder(),
                 elevation: 4,
               ),
@@ -330,7 +330,7 @@ class AtelierOrderTrackingView extends StatelessWidget {
             height: 52,
             child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                backgroundColor: isDark ? const Color(0xFF16161C) : AppColors.ctaDark,
+                backgroundColor: isDark ? const Color(0xFF1A1631) : AppColors.ctaDark,
                 foregroundColor: Colors.white,
                 shape: const StadiumBorder(),
                 side: const BorderSide(color: AppColors.champagneGold, width: 1.2),

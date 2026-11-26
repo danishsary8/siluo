@@ -168,7 +168,7 @@ class _AtelierSwatchOrderViewState extends State<AtelierSwatchOrderView> {
     return Container(
       constraints: BoxConstraints(maxHeight: size.height * 0.90),
       decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF0C0C0F) : AppColors.canvasLight,
+        color: isDark ? const Color(0xFF0C0A19) : AppColors.canvasLight,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
         border: Border.all(
           color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight,
@@ -237,7 +237,7 @@ class _AtelierSwatchOrderViewState extends State<AtelierSwatchOrderView> {
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF141418) : const Color(0xFFF3EFEA),
+                    color: isDark ? const Color(0xFF17132C) : const Color(0xFFF3EFEA),
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
                       color: AppColors.champagneGold.withValues(alpha: 0.35),
@@ -314,7 +314,7 @@ class _AtelierSwatchOrderViewState extends State<AtelierSwatchOrderView> {
                       decoration: BoxDecoration(
                         color: isSelected
                             ? AppColors.champagneGold.withValues(alpha: isDark ? 0.15 : 0.08)
-                            : (isDark ? const Color(0xFF131317) : Colors.white),
+                            : (isDark ? const Color(0xFF161229) : Colors.white),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
                           color: isSelected

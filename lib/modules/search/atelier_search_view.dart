@@ -458,7 +458,7 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                         child: Container(
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
-                            color: isDark ? const Color(0xFF16161B) : Colors.white,
+                            color: isDark ? const Color(0xFF1A1631) : Colors.white,
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
                               color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight,
@@ -515,7 +515,7 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                         child: Container(
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
-                            color: isDark ? const Color(0xFF16161B) : Colors.white,
+                            color: isDark ? const Color(0xFF1A1631) : Colors.white,
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
                               color: AppColors.champagneGold.withValues(alpha: 0.35),
