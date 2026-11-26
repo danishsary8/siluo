@@ -158,7 +158,6 @@ flutter build web --release
 
 - All data is mocked locally; nothing is sent to a server.
 - Some images load from Unsplash, so they need an internet connection.
-- `ui-ux-pro-max-skill/` is a separate design-tooling folder and is not part of the app.
 
 ---
 
