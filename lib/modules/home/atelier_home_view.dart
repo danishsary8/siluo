@@ -2,7 +2,9 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../controllers/account_controller.dart';
 import '../../controllers/atelier_controller.dart';
+import '../account/atelier_inbox_view.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
@@ -195,6 +197,41 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 onPressed: controller.toggleDarkMode,
               ),
 
+              // Inbox bell with unread badge
+              Obx(() {
+                final unread = AccountController.to.unreadCount;
+                return Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    IconButton(
+                      tooltip: 'Inbox',
+                      icon: Icon(
+                        CupertinoIcons.bell,
+                        size: 22,
+                        color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
+                      ),
+                      onPressed: () {
+                        HapticService.light();
+                        Get.to<void>(() => const AtelierInboxView());
+                      },
+                    ),
+                    if (unread > 0)
+                      Positioned(
+                        top: 10,
+                        right: 10,
+                        child: Container(
+                          width: 8,
+                          height: 8,
+                          decoration: const BoxDecoration(
+                            color: AppColors.silouPrimary,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
+                  ],
+                );
+              }),
+
               // Wishlist Icon with Live Counter
               Obx(() {
                 final count = controller.wishlistProductIds.length;
@@ -207,7 +244,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         size: 22,
                         color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                       ),
-                      onPressed: () => controller.switchTab(1), // Nav to wishlist or tab
+                      onPressed: () => controller.switchTab(3), // Wishlist tab
                     ),
                     if (count > 0)
                       Positioned(
@@ -245,7 +282,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         size: 22,
                         color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                       ),
-                      onPressed: () => controller.switchTab(3), // Switch to Cart tab
+                      onPressed: () => controller.switchTab(2), // Cart tab
                     ),
                     if (cartCount > 0)
                       Positioned(

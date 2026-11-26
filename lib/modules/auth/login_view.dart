@@ -160,7 +160,7 @@ class LoginView extends StatelessWidget {
       width: double.infinity,
       height: 50,
       child: OutlinedButton.icon(
-        onPressed: () {},
+        onPressed: () => Get.offAllNamed(AppRoutes.main),
         icon: Icon(icon, size: 22),
         label: Text(
           label,

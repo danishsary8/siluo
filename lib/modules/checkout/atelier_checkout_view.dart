@@ -8,6 +8,8 @@ import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import 'widgets/atelier_packaging_sheet.dart';
 import 'atelier_order_success_view.dart';
+import '../../controllers/account_controller.dart';
+import '../account/atelier_address_book_view.dart';
 
 class AtelierCheckoutView extends StatefulWidget {
   const AtelierCheckoutView({super.key});
@@ -101,7 +103,9 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                Container(
+                Obx(() {
+                final addr = AccountController.to.defaultAddress;
+                return Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
@@ -119,7 +123,7 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Claire Dubois',
+                              addr?.fullName ?? 'Add a delivery address',
                               style: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 14,
@@ -128,7 +132,7 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              '14 Rue de la Paix, 1er Arrondissement\nParis, 75001, France',
+                              addr?.twoLines ?? 'Tap Edit to choose where we deliver',
                               style: TextStyle(
                                 fontSize: 13,
                                 color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
@@ -139,12 +143,16 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          HapticService.light();
+                          Get.to<void>(() => const AtelierAddressBookView(selectMode: true));
+                        },
                         child: const Text('Edit', style: TextStyle(color: AppColors.champagneGold)),
                       ),
                     ],
                   ),
-                ),
+                );
+                }),
                 const SizedBox(height: 24),
 
                 // Signature Packaging & Unboxing Card

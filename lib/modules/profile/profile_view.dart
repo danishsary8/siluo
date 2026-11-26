@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../account/atelier_address_book_view.dart';
+import '../concierge/atelier_concierge_sheet.dart';
 
 import '../../routes/app_routes.dart';
 import '../../theme.dart';
@@ -122,7 +124,7 @@ class ProfileView extends StatelessWidget {
             _settingTile(
               title: "Address",
               icon: Icons.location_on_outlined,
-              onTap: () {},
+              onTap: () => Get.to<void>(() => const AtelierAddressBookView()),
             ),
             _settingTile(
               title: "Wishlist",
@@ -132,7 +134,8 @@ class ProfileView extends StatelessWidget {
             _settingTile(
               title: "Payment",
               icon: Icons.credit_card,
-              onTap: () {},
+              onTap: () => Get.snackbar("Payment", "Visa •••• 4242 is your default card",
+                  snackPosition: SnackPosition.BOTTOM),
             ),
 
             const SizedBox(height: 18),
@@ -160,7 +163,7 @@ class ProfileView extends StatelessWidget {
             _settingTile(
               title: "Support",
               icon: Icons.help_outline,
-              onTap: () {},
+              onTap: () => AtelierConciergeSheet.show(context),
             ),
 
             const SizedBox(height: 22),

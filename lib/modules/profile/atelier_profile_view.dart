@@ -16,6 +16,11 @@ import '../soundscape/atelier_acoustic_view.dart';
 import '../archive/atelier_heritage_archive_view.dart';
 import '../journal/atelier_journal_view.dart';
 import '../concierge/atelier_consultation_suite_view.dart';
+import '../../controllers/account_controller.dart';
+import '../account/atelier_address_book_view.dart';
+import '../account/atelier_inbox_view.dart';
+import '../account/atelier_measurements_view.dart';
+import '../account/atelier_order_history_view.dart';
 
 class AtelierProfileView extends StatelessWidget {
   const AtelierProfileView({super.key});
@@ -271,12 +276,43 @@ class AtelierProfileView extends StatelessWidget {
                     trailing: const Icon(CupertinoIcons.chevron_right, size: 16, color: Colors.grey),
                   ),
                   const Divider(height: 1),
-                  _buildProfileTile(
-                    icon: CupertinoIcons.person_crop_square,
-                    title: 'Bespoke Measurements',
-                    subtitle: 'Bust 84cm • Waist 66cm • Hips 92cm',
-                    isDark: isDark,
-                  ),
+                  Obx(() => _buildProfileTile(
+                        icon: CupertinoIcons.person_crop_square,
+                        title: 'Bespoke Measurements',
+                        subtitle: AccountController.to.measurementSummary,
+                        isDark: isDark,
+                        onTap: () {
+                          HapticService.light();
+                          Get.to<void>(() => const AtelierMeasurementsView());
+                        },
+                      )),
+                  const Divider(height: 1),
+                  Obx(() {
+                    final unread = AccountController.to.unreadCount;
+                    return _buildProfileTile(
+                      icon: CupertinoIcons.bell,
+                      title: 'Inbox & Notifications',
+                      subtitle: unread == 0 ? 'All caught up' : '$unread unread messages',
+                      isDark: isDark,
+                      onTap: () {
+                        HapticService.light();
+                        Get.to<void>(() => const AtelierInboxView());
+                      },
+                      trailing: unread == 0
+                          ? null
+                          : Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                              decoration: BoxDecoration(
+                                color: AppColors.silouPrimary,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Text(
+                                '$unread',
+                                style: const TextStyle(color: Colors.white, fontSize: 11, fontWeight: FontWeight.w800),
+                              ),
+                            ),
+                    );
+                  }),
                   const Divider(height: 1),
                   Obx(() => _buildProfileTile(
                         icon: CupertinoIcons.globe,
@@ -291,7 +327,22 @@ class AtelierProfileView extends StatelessWidget {
             const SizedBox(height: 28),
 
             // Order History Timeline
-            _buildSectionHeader('RECENT ORDERS', isDark),
+            Row(
+              children: [
+                _buildSectionHeader('RECENT ORDERS', isDark),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    HapticService.light();
+                    Get.to<void>(() => const AtelierOrderHistoryView());
+                  },
+                  child: const Text(
+                    'View all',
+                    style: TextStyle(color: AppColors.champagneGold, fontWeight: FontWeight.w700, fontSize: 13),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
@@ -328,46 +379,60 @@ class AtelierProfileView extends StatelessWidget {
             // Saved Addresses
             _buildSectionHeader('SAVED ADDRESSES', isDark),
             const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.all(18),
-              decoration: BoxDecoration(
-                color: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight,
-                ),
-              ),
-              child: Row(
-                children: [
-                  const Icon(CupertinoIcons.house_fill, color: AppColors.champagneGold, size: 22),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+            Obx(() {
+              final a = AccountController.to.defaultAddress;
+              final count = AccountController.to.addresses.length;
+              return Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: () {
+                    HapticService.light();
+                    Get.to<void>(() => const AtelierAddressBookView());
+                  },
+                  child: Ink(
+                    padding: const EdgeInsets.all(18),
+                    decoration: BoxDecoration(
+                      color: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight,
+                      ),
+                    ),
+                    child: Row(
                       children: [
-                        Text(
-                          'Primary Residence (Default)',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
+                        const Icon(CupertinoIcons.house_fill, color: AppColors.champagneGold, size: 22),
+                        const SizedBox(width: 14),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                a == null ? 'No saved address' : '${a.label} (Default) • $count saved',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                a?.oneLine ?? 'Tap to add an address',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        const SizedBox(height: 4),
-                        Text(
-                          '14 Rue de la Paix, 1er Arrondissement, Paris, 75001',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
-                          ),
-                        ),
+                        const Icon(CupertinoIcons.chevron_right, size: 16, color: Colors.grey),
                       ],
                     ),
                   ),
-                  const Icon(CupertinoIcons.chevron_right, size: 16, color: Colors.grey),
-                ],
-              ),
-            ),
+                ),
+              );
+            }),
             const SizedBox(height: 36),
 
             // Sign Out / Concierge

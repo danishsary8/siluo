@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../routes/app_routes.dart';
 import '../../widgets/animated_primary_button.dart';
 import '../../widgets/app_input.dart';
 
@@ -117,7 +119,7 @@ class _RegisterViewState extends State<RegisterView> {
                       child: AnimatedPrimaryButton(
                         text: 'Continue',
                         onTap: () {
-                          // TODO: Implement register logic
+                          Get.offAllNamed(AppRoutes.main);
                         },
                       ),
                     ),
