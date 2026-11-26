@@ -604,7 +604,9 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                   physics: const BouncingScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.58,
+                    // Fixed height that fits AtelierProductCard (220px image + details);
+                    // an aspect ratio clipped the price and add-to-bag row.
+                    mainAxisExtent: 356,
                     crossAxisSpacing: 14,
                     mainAxisSpacing: 16,
                   ),
