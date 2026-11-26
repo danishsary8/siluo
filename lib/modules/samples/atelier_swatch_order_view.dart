@@ -195,24 +195,30 @@ class _AtelierSwatchOrderViewState extends State<AtelierSwatchOrderView> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'L’ÉCHANTILLONNAGE TEXTILE',
-                      style: AppTypography.brandLogo(
-                        color: isDark ? Colors.white : Colors.black87,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'L’ÉCHANTILLONNAGE TEXTILE',
+                          style: AppTypography.brandLogo(
+                            color: isDark ? Colors.white : Colors.black87,
+                          ),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      'Complimentary 10×10 cm Archival Cuttings in Wax-Sealed Linen Envelope',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
+                      const SizedBox(height: 2),
+                      Text(
+                        'Complimentary 10×10 cm Archival Cuttings in Wax-Sealed Linen Envelope',
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 IconButton(
                   icon: Icon(

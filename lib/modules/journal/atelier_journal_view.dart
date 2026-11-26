@@ -8,6 +8,7 @@ import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../product_detail/atelier_pdp_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class JournalSection {
   final String? subtitle;
@@ -257,6 +258,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
                       Image.network(
                         _article.heroImageUrl,
                         fit: BoxFit.cover,
+                        errorBuilder: ImageFallback.builder,
                       ),
                       // Luxury Film Scrim Gradient
                       DecoratedBox(
@@ -654,6 +656,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: 240,
+                errorBuilder: (_, __, ___) => const ImageFallback(width: double.infinity, height: 240),
               ),
             ),
             if (section.imageCaption != null) ...[
@@ -751,6 +754,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
                 width: 65,
                 height: 80,
                 fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => const ImageFallback(width: 65, height: 80),
               ),
             ),
             const SizedBox(width: 14),

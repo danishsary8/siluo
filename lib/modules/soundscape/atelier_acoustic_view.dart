@@ -325,13 +325,16 @@ class _AtelierAcousticViewState extends State<AtelierAcousticView>
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Haptic Sub-Bass Transients', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white)),
-                        Text('Tactile motor vibrations synchronized to ambient rhythm', style: TextStyle(fontSize: 10, color: Colors.white54)),
-                      ],
+                    const Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Haptic Sub-Bass Transients', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white)),
+                          Text('Tactile motor vibrations synchronized to ambient rhythm', style: TextStyle(fontSize: 10, color: Colors.white54)),
+                        ],
+                      ),
                     ),
+                    const SizedBox(width: 12),
                     CupertinoSwitch(
                       value: _hapticPulseSync,
                       activeTrackColor: AppColors.champagneGold,

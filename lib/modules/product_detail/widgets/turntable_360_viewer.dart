@@ -6,6 +6,7 @@ import '../../../core/constants/app_typography.dart';
 import '../../../core/utils/haptic_service.dart';
 import '../../../data/models/product_model.dart';
 import '../../../shared/widgets/liquid_glass_container.dart';
+import '../../../shared/widgets/image_fallback.dart';
 
 /// Turntable360Viewer provides an interactive 360° rotational garment turntable.
 /// Supports horizontal pan dragging with continuous inertia, compass angle dial,
@@ -225,6 +226,7 @@ class _Turntable360ViewerState extends State<Turntable360Viewer> {
                             fit: BoxFit.cover,
                             width: double.infinity,
                             height: double.infinity,
+                            errorBuilder: (_, __, ___) => const ImageFallback(width: double.infinity, height: double.infinity),
                           ),
                         ),
 

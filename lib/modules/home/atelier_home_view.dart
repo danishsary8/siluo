@@ -144,27 +144,35 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
             titleSpacing: 20,
             title: Row(
               children: [
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'SILOU',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w900,
-                          letterSpacing: 2.0,
-                          color: isDark ? Colors.white : AppColors.silouSecondary,
-                        ),
+                // Scales the wordmark down rather than overflowing when the
+                // four action icons leave little room (narrow phones).
+                Flexible(
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.centerLeft,
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'SILOU',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 2.0,
+                              color: isDark ? Colors.white : AppColors.silouSecondary,
+                            ),
+                          ),
+                          const TextSpan(
+                            text: '.',
+                            style: TextStyle(
+                              fontSize: 26,
+                              fontWeight: FontWeight.w900,
+                              color: AppColors.silouPrimary,
+                            ),
+                          ),
+                        ],
                       ),
-                      const TextSpan(
-                        text: '.',
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.w900,
-                          color: AppColors.silouPrimary,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ],

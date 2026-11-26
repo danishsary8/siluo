@@ -7,6 +7,7 @@ import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import '../../data/models/product_model.dart';
 import '../product_detail/atelier_pdp_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class AtelierGiftingView extends StatefulWidget {
   const AtelierGiftingView({super.key});
@@ -237,6 +238,7 @@ class _AtelierGiftingViewState extends State<AtelierGiftingView> {
                         width: 76,
                         height: 96,
                         fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) => const ImageFallback(width: 76, height: 96),
                       ),
                     ),
                   ),

@@ -6,6 +6,7 @@ import '../../../core/utils/haptic_service.dart';
 import '../../../data/models/product_model.dart';
 import '../../../shared/widgets/liquid_glass_container.dart';
 import '../../samples/atelier_swatch_order_view.dart';
+import '../../../shared/widgets/image_fallback.dart';
 
 /// FabricWeaveLoupeModal provides a high-luxury interactive macro weave inspection tool.
 /// Allows discerning couture clients to inspect yarn composition, warp & weft weave,
@@ -184,6 +185,7 @@ class _FabricWeaveLoupeModalState extends State<FabricWeaveLoupeModal> {
                             Image.network(
                               _weaveTextureUrl,
                               fit: BoxFit.cover,
+                              errorBuilder: ImageFallback.builder,
                             ),
 
                             // Ambient Vignette
@@ -238,6 +240,7 @@ class _FabricWeaveLoupeModalState extends State<FabricWeaveLoupeModal> {
                                       child: Image.network(
                                         _weaveTextureUrl,
                                         fit: BoxFit.cover,
+                                        errorBuilder: ImageFallback.builder,
                                       ),
                                     ),
                                     // Reticle Crosshairs

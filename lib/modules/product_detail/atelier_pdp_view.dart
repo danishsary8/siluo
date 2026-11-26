@@ -872,7 +872,8 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                             ),
                             const SizedBox(height: 14),
                             SizedBox(
-                              height: 310,
+                              // Fits AtelierProductCard's natural height (220px image + details).
+                              height: 356,
                               child: ListView.separated(
                                 scrollDirection: Axis.horizontal,
                                 physics: const BouncingScrollPhysics(),

@@ -278,7 +278,7 @@ class _StyleTheLookViewState extends State<StyleTheLookView> {
                                   children: [
                                     Icon(CupertinoIcons.checkmark_alt, size: 18),
                                     SizedBox(width: 6),
-                                    Text('3 PIECES ADDED', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12)),
+                                    Flexible(child: Text('Added to bag', overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13))),
                                   ],
                                 )
                               : const Row(
@@ -287,7 +287,7 @@ class _StyleTheLookViewState extends State<StyleTheLookView> {
                                   children: [
                                     Icon(CupertinoIcons.sparkles, size: 16),
                                     SizedBox(width: 6),
-                                    Text('SHOP 3-PIECE LOOK', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12)),
+                                    Flexible(child: Text('Shop the look', overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13))),
                                   ],
                                 ),
                         ),
@@ -317,14 +317,20 @@ class _StyleTheLookViewState extends State<StyleTheLookView> {
               color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
             ),
           ),
-          Obx(() => Text(
+          const SizedBox(width: 12),
+          Flexible(
+            child: Obx(() => Text(
                 '${activeProduct.title} (${controller.formatPrice(activeProduct.price)})',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.end,
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
                   color: isDark ? AppColors.champagneGold : AppColors.ctaDark,
                 ),
               )),
+          ),
         ],
       ),
     );

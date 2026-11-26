@@ -6,6 +6,7 @@ import '../../../core/constants/app_typography.dart';
 import '../../../core/utils/haptic_service.dart';
 import '../../../data/models/product_model.dart';
 import '../../../shared/widgets/liquid_glass_container.dart';
+import '../../../shared/widgets/image_fallback.dart';
 
 /// KineticDrapeModal provides an interactive 360° fabric motion and drape simulator.
 /// Allows clients to scrub walking speeds from stationary to brisk runway pace
@@ -191,6 +192,7 @@ class _KineticDrapeModalState extends State<KineticDrapeModal>
                           child: Image.network(
                             widget.product.primaryImage,
                             fit: BoxFit.cover,
+                            errorBuilder: ImageFallback.builder,
                           ),
                         ),
                       ),

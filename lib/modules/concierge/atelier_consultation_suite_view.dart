@@ -8,6 +8,7 @@ import '../../core/utils/haptic_service.dart';
 import '../../data/models/product_model.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../salon/atelier_salon_booking_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class AtelierConsultationSuiteView extends StatefulWidget {
   const AtelierConsultationSuiteView({super.key});
@@ -110,6 +111,7 @@ class _AtelierConsultationSuiteViewState extends State<AtelierConsultationSuiteV
           Image.network(
             'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80',
             fit: BoxFit.cover,
+            errorBuilder: ImageFallback.builder,
           ),
 
           // Cinematic Studio Lighting & Scrim Overlay
@@ -270,6 +272,7 @@ class _AtelierConsultationSuiteViewState extends State<AtelierConsultationSuiteV
                     Image.network(
                       'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
                       fit: BoxFit.cover,
+                      errorBuilder: ImageFallback.builder,
                     ),
 
                   // Mic Status Icon
@@ -417,6 +420,7 @@ class _AtelierConsultationSuiteViewState extends State<AtelierConsultationSuiteV
                                     width: 50,
                                     height: 64,
                                     fit: BoxFit.cover,
+                                    errorBuilder: (_, __, ___) => const ImageFallback(width: 50, height: 64),
                                   ),
                                 ),
                                 const SizedBox(width: 12),

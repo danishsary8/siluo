@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class SalonCity {
   final String id;
@@ -188,7 +189,8 @@ class _AtelierSalonBookingViewState extends State<AtelierSalonBookingView> {
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
-                      Image.network(city.imageUrl, fit: BoxFit.cover),
+                      Image.network(city.imageUrl, fit: BoxFit.cover,
+ errorBuilder: ImageFallback.builder,),
                       Container(
                         decoration: BoxDecoration(
                           gradient: LinearGradient(

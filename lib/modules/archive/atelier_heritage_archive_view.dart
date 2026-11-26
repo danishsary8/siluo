@@ -6,6 +6,7 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class HeritageEra {
   final int year;
@@ -493,6 +494,7 @@ class _AtelierHeritageArchiveViewState extends State<AtelierHeritageArchiveView>
               Image.network(
                 era.imageUrl,
                 fit: BoxFit.cover,
+                errorBuilder: ImageFallback.builder,
               ),
               // Sepia / Vignette overlay
               DecoratedBox(

@@ -10,6 +10,7 @@ import '../../data/models/product_model.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../product_detail/atelier_pdp_view.dart';
 import '../journal/atelier_journal_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class MagazineSpread {
   final String issueNumber;
@@ -286,6 +287,7 @@ class _AtelierMagazineViewState extends State<AtelierMagazineView>
         Image.network(
           spread.imageUrl,
           fit: BoxFit.cover,
+          errorBuilder: ImageFallback.builder,
         ),
 
         // Editorial Scrim & Vignette
@@ -502,6 +504,7 @@ class _AtelierMagazineViewState extends State<AtelierMagazineView>
               width: 68,
               height: 84,
               fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) => const ImageFallback(width: 68, height: 84),
             ),
           ),
           const SizedBox(width: 14),
