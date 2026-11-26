@@ -29,6 +29,11 @@ class _AtelierOrderHistoryViewState extends State<AtelierOrderHistoryView> {
 
   @override
   Widget build(BuildContext context) {
+    // Rebuilds when orders finish loading from the repository.
+    return Obx(() => _buildPage(context));
+  }
+
+  Widget _buildPage(BuildContext context) {
     final orders = AccountController.to.orders
         .where((o) => _tab == 'All' || o.status == _tab)
         .toList();

@@ -6,9 +6,11 @@ import '../../controllers/account_controller.dart';
 import '../../controllers/atelier_controller.dart';
 import '../account/atelier_inbox_view.dart';
 import '../../core/constants/app_colors.dart';
+import '../../core/network/load_status.dart';
+import '../../shared/widgets/load_error_view.dart';
+import '../../shared/widgets/product_grid_skeleton.dart';
 import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
-import '../../data/mock/mock_atelier_data.dart';
 import '../../data/models/capsule_collection.dart';
 import '../../data/models/product_model.dart';
 import '../../shared/widgets/atelier_product_card.dart';
@@ -88,9 +90,10 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
   void _openRunwayStory(String storyLabel, String imageUrl) {
     HapticService.selection();
     final products = AtelierController.to.allProducts;
-    final tagged1 = products.isNotEmpty ? products[0] : mockAtelierProducts.first;
-    final tagged2 = products.length > 1 ? products[1] : mockAtelierProducts.first;
-    final tagged3 = products.length > 2 ? products[2] : mockAtelierProducts.first;
+    if (products.isEmpty) return; // Catalogue still loading; nothing to tag yet.
+    final tagged1 = products[0];
+    final tagged2 = products[1 % products.length];
+    final tagged3 = products[2 % products.length];
 
     Get.to(
       () => AtelierRunwayStoryView(
@@ -481,14 +484,14 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 const SizedBox(height: 10),
                 SizedBox(
                   height: 98,
-                  child: ListView.separated(
+                  child: Obx(() => ListView.separated(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
-                    itemCount: mockStories.length,
+                    itemCount: controller.stories.length,
                     separatorBuilder: (_, __) => const SizedBox(width: 14),
                     itemBuilder: (context, index) {
-                      final story = mockStories[index];
+                      final story = controller.stories[index];
                       return GestureDetector(
                         onTap: () => _openRunwayStory(story.label, story.imageUrl),
                         child: Column(
@@ -532,7 +535,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         ),
                       );
                     },
-                  ),
+                  )),
                 ),
               ],
             ),
@@ -545,25 +548,25 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 const SizedBox(height: 8),
                 SizedBox(
                   height: 190,
-                  child: PageView.builder(
+                  child: Obx(() => PageView.builder(
                     controller: _heroPageController,
-                    itemCount: mockCapsules.length,
+                    itemCount: controller.campaigns.length,
                     onPageChanged: (idx) {
                       HapticService.selection();
                       setState(() => _activeHeroIndex = idx);
                     },
                     itemBuilder: (context, index) {
-                      final capsule = mockCapsules[index];
+                      final capsule = controller.campaigns[index];
                       return _buildCapsuleCard(capsule, isDark);
                     },
-                  ),
+                  )),
                 ),
                 const SizedBox(height: 10),
                 // Smooth Dot Indicators
-                Row(
+                Obx(() => Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
-                    mockCapsules.length,
+                    controller.campaigns.length,
                     (i) => AnimatedContainer(
                       duration: const Duration(milliseconds: 250),
                       margin: const EdgeInsets.symmetric(horizontal: 3),
@@ -577,7 +580,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                       ),
                     ),
                   ),
-                ),
+                )),
                 const SizedBox(height: 16),
               ],
             ),
@@ -838,6 +841,20 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
           // 10. Curated 2-Column Product Grid
           Obx(() {
             final products = controller.filteredProducts;
+            final status = controller.catalogStatus.value;
+
+            if (controller.allProducts.isEmpty && status == LoadStatus.loading) {
+              return const SliverToBoxAdapter(child: ProductGridSkeleton());
+            }
+            if (controller.allProducts.isEmpty && status == LoadStatus.error) {
+              return SliverToBoxAdapter(
+                child: LoadErrorView(
+                  title: 'Couldn\'t load the shop',
+                  message: controller.catalogError.value ?? '',
+                  onRetry: controller.loadCatalog,
+                ),
+              );
+            }
 
             if (products.isEmpty) {
               return SliverToBoxAdapter(

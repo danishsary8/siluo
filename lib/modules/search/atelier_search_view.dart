@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/atelier_controller.dart';
 import '../../core/constants/app_colors.dart';
+import '../../core/network/load_status.dart';
+import '../../shared/widgets/load_error_view.dart';
+import '../../shared/widgets/product_grid_skeleton.dart';
 import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import '../../shared/widgets/atelier_product_card.dart';
@@ -576,6 +579,25 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
             Expanded(
               child: Obx(() {
                 final results = controller.filteredProducts;
+                final status = controller.catalogStatus.value;
+
+                if (controller.allProducts.isEmpty && status == LoadStatus.loading) {
+                  return const SingleChildScrollView(
+                    padding: EdgeInsets.only(top: 16),
+                    child: ProductGridSkeleton(),
+                  );
+                }
+                if (controller.allProducts.isEmpty && status == LoadStatus.error) {
+                  return Center(
+                    child: SingleChildScrollView(
+                      child: LoadErrorView(
+                        title: 'Couldn\'t load the shop',
+                        message: controller.catalogError.value ?? '',
+                        onRetry: controller.loadCatalog,
+                      ),
+                    ),
+                  );
+                }
 
                 if (results.isEmpty) {
                   return Center(
