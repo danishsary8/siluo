@@ -179,7 +179,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                                         color: isDark ? Colors.white : Colors.black,
                                       ),
                                       decoration: const InputDecoration(
-                                        hintText: 'Enter ATELIER15',
+                                        hintText: 'Enter a code, e.g. SILOU20',
                                         hintStyle: TextStyle(fontSize: 13, color: Colors.grey),
                                         border: InputBorder.none,
                                         isDense: true,
@@ -254,16 +254,16 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                             ],
                             const SizedBox(height: 10),
                             _buildSummaryRow(
-                              'Estimated Shipping',
+                              'Shipping',
                               controller.shippingFee == 0
-                                  ? 'COMPLIMENTARY'
+                                  ? 'Free'
                                   : controller.formatPrice(controller.shippingFee),
                               isDark,
                               isFreeShipping: controller.shippingFee == 0,
                             ),
                             const SizedBox(height: 10),
                             _buildSummaryRow(
-                              'Estimated Tax (8%)',
+                              'Estimated tax (8%)',
                               controller.formatPrice(controller.taxAmount),
                               isDark,
                             ),
@@ -272,7 +272,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                               child: Divider(height: 1),
                             ),
                             _buildSummaryRow(
-                              'Estimated Total',
+                              'Total',
                               controller.formatPrice(controller.grandTotal),
                               isDark,
                               isTotal: true,

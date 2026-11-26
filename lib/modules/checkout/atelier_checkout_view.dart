@@ -383,7 +383,7 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Total Payable',
+                        'Total',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
