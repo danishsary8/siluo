@@ -2,13 +2,15 @@
 
 # SILOU<span style="color:#FF4838;">.</span>
 
-**A fashion & streetwear shopping app UI, built with Flutter.**
+**A fashion & streetwear shopping app, built with Flutter.**  
+*Frontend complete · backend coming next*
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-%3E%3D3.3-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
 [![GetX](https://img.shields.io/badge/GetX-4.6-8A2BE2?style=for-the-badge)](https://pub.dev/packages/get)
 [![Platforms](https://img.shields.io/badge/iOS%20·%20Android%20·%20Web-111827?style=for-the-badge)](#-getting-started)
-[![Netlify](https://img.shields.io/badge/Netlify-ready-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](./netlify.toml)
+[![Live demo](https://img.shields.io/badge/Live%20demo-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://silou-fashion.netlify.app)
+[![Status](https://img.shields.io/badge/Status-Frontend%20only-FF4D3D?style=for-the-badge)](#-current-status-frontend-only)
 
 *Browse → try on → personalise → check out → track. Every screen is interactive.*
 
@@ -18,16 +20,30 @@
 
 ## ✨ What is SILOU?
 
-**SILOU** (from *silhouette*) is a **frontend-only** Flutter app that shows what a premium
-fashion e-commerce experience can feel like on mobile. It runs entirely on local demo data —
-no backend, no accounts, no payments — so you can open it and tap through every flow.
+**SILOU** (from *silhouette*) is a mobile shopping app built for **fashion and streetwear
+brands, boutiques and multi-brand retailers** who want to sell online with a premium,
+editorial feel. Shoppers can discover new drops, try styles on, personalise pieces,
+check out and track orders, all from one app.
 
 It has two layers:
 
-1. **The shop** — home feed, search & filters, product pages, wishlist, bag, promo codes, checkout and order tracking.
-2. **The atelier** — showcase screens that go beyond a normal store: a 360° turntable, fabric zoom, virtual mirror, monogram studio, live runway, VIP club, salon booking and more.
+1. **The shop:** home feed, search & filters, product pages, wishlist, bag, promo codes, checkout and order tracking.
+2. **The atelier:** premium extras that go beyond a normal store, like a 360° turntable, fabric zoom, virtual mirror, monogram studio, live runway, VIP club and salon booking.
 
-> 🎯 **Purpose:** a portfolio / UI-showcase project, and a starting point for a real fashion store front end.
+### 📍 Current status: frontend only
+
+> **This repository is the frontend (UI) of SILOU, and it is complete and fully interactive.**
+> There is **no backend yet**. Products, orders, addresses, notifications and the user
+> profile all come from **local demo data**, so every screen works offline and nothing is
+> sent to a server. Accounts, payments and real order processing are not connected yet.
+
+The UI was built first so the full shopping experience could be designed, tested and
+demoed before any server work begins.
+
+### 🔭 Future plan: add a backend
+
+The goal is to grow SILOU into a real, production store by connecting it to a backend.
+See the [Roadmap](#-roadmap) for what's planned.
 
 ---
 
@@ -157,9 +173,33 @@ flutter build web --release --no-web-resources-cdn
 
 ---
 
+## 🗺️ Roadmap
+
+**✅ Done: frontend**
+- [x] Full shopping flow: home, search, product page, wishlist, bag, checkout, order tracking
+- [x] Account pages: addresses, measurements, inbox, order history
+- [x] Atelier showcase screens
+- [x] Light & dark themes, motion and haptics
+- [x] Web build deployed on Netlify
+
+**🔜 Next: backend** *(planned)*
+- [ ] **API & database** for products, inventory, prices and brands, replacing the local demo data
+- [ ] **User accounts** with sign up, log in, password reset and a saved profile
+- [ ] **Cart, wishlist and addresses synced** across devices
+- [ ] **Real checkout** with a payment provider and order confirmation emails
+- [ ] **Orders & delivery tracking** with live status updates
+- [ ] **Push notifications** for orders, new drops and offers
+- [ ] **Admin dashboard** for store owners to manage products and orders
+
+The app is ready for this step: all data already flows through the GetX controllers
+(`AtelierController`, `AccountController`), so each one can be switched from demo data
+to API calls without redesigning the screens.
+
+---
+
 ## ⚠️ Notes
 
-- All data is mocked locally; nothing is sent to a server.
+- **Frontend only:** all data is local demo data and nothing is sent to a server (see [Current status](#-current-status-frontend-only)).
 - Some images load from Unsplash, so they need an internet connection.
 
 ---
