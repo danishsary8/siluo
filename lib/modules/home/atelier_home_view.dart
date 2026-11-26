@@ -6,9 +6,11 @@ import '../../controllers/account_controller.dart';
 import '../../controllers/atelier_controller.dart';
 import '../account/atelier_inbox_view.dart';
 import '../../core/constants/app_colors.dart';
+import '../../core/network/load_status.dart';
+import '../../shared/widgets/load_error_view.dart';
+import '../../shared/widgets/product_grid_skeleton.dart';
 import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
-import '../../data/mock/mock_atelier_data.dart';
 import '../../data/models/capsule_collection.dart';
 import '../../data/models/product_model.dart';
 import '../../shared/widgets/atelier_product_card.dart';
@@ -88,9 +90,10 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
   void _openRunwayStory(String storyLabel, String imageUrl) {
     HapticService.selection();
     final products = AtelierController.to.allProducts;
-    final tagged1 = products.isNotEmpty ? products[0] : mockAtelierProducts.first;
-    final tagged2 = products.length > 1 ? products[1] : mockAtelierProducts.first;
-    final tagged3 = products.length > 2 ? products[2] : mockAtelierProducts.first;
+    if (products.isEmpty) return; // Catalogue still loading; nothing to tag yet.
+    final tagged1 = products[0];
+    final tagged2 = products[1 % products.length];
+    final tagged3 = products[2 % products.length];
 
     Get.to(
       () => AtelierRunwayStoryView(
@@ -144,43 +147,34 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
             titleSpacing: 20,
             title: Row(
               children: [
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'SILOU',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w900,
-                          letterSpacing: 2.0,
-                          color: isDark ? Colors.white : AppColors.silouSecondary,
-                        ),
+                // Scales the wordmark down rather than overflowing when the
+                // four action icons leave little room (narrow phones).
+                Flexible(
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.centerLeft,
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'SILOU',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 2.0,
+                              color: isDark ? Colors.white : AppColors.silouSecondary,
+                            ),
+                          ),
+                          const TextSpan(
+                            text: '.',
+                            style: TextStyle(
+                              fontSize: 26,
+                              fontWeight: FontWeight.w900,
+                              color: AppColors.silouPrimary,
+                            ),
+                          ),
+                        ],
                       ),
-                      const TextSpan(
-                        text: '.',
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.w900,
-                          color: AppColors.silouPrimary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: AppColors.silouPrimary.withValues(alpha: 0.12),
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: const Text(
-                    'SHOPPING',
-                    style: TextStyle(
-                      fontSize: 9,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 1.0,
-                      color: AppColors.silouPrimary,
                     ),
                   ),
                 ),
@@ -490,14 +484,14 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 const SizedBox(height: 10),
                 SizedBox(
                   height: 98,
-                  child: ListView.separated(
+                  child: Obx(() => ListView.separated(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
-                    itemCount: mockStories.length,
+                    itemCount: controller.stories.length,
                     separatorBuilder: (_, __) => const SizedBox(width: 14),
                     itemBuilder: (context, index) {
-                      final story = mockStories[index];
+                      final story = controller.stories[index];
                       return GestureDetector(
                         onTap: () => _openRunwayStory(story.label, story.imageUrl),
                         child: Column(
@@ -541,7 +535,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         ),
                       );
                     },
-                  ),
+                  )),
                 ),
               ],
             ),
@@ -554,25 +548,25 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 const SizedBox(height: 8),
                 SizedBox(
                   height: 190,
-                  child: PageView.builder(
+                  child: Obx(() => PageView.builder(
                     controller: _heroPageController,
-                    itemCount: mockCapsules.length,
+                    itemCount: controller.campaigns.length,
                     onPageChanged: (idx) {
                       HapticService.selection();
                       setState(() => _activeHeroIndex = idx);
                     },
                     itemBuilder: (context, index) {
-                      final capsule = mockCapsules[index];
+                      final capsule = controller.campaigns[index];
                       return _buildCapsuleCard(capsule, isDark);
                     },
-                  ),
+                  )),
                 ),
                 const SizedBox(height: 10),
                 // Smooth Dot Indicators
-                Row(
+                Obx(() => Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
-                    mockCapsules.length,
+                    controller.campaigns.length,
                     (i) => AnimatedContainer(
                       duration: const Duration(milliseconds: 250),
                       margin: const EdgeInsets.symmetric(horizontal: 3),
@@ -586,7 +580,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                       ),
                     ),
                   ),
-                ),
+                )),
                 const SizedBox(height: 16),
               ],
             ),
@@ -618,11 +612,9 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                       const Icon(Icons.bolt, color: AppColors.silouPrimary, size: 22),
                       const SizedBox(width: 4),
                       Text(
-                        'FLASH DEALS',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w900,
-                          letterSpacing: 0.5,
+                        'Flash deals',
+                        style: AppTypography.editorialHeading(
+                          fontSize: 22,
                           color: isDark ? Colors.white : AppColors.silouSecondary,
                         ),
                       ),
@@ -685,11 +677,8 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'OFFICIAL BRANDS',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 0.8,
+                        'Official brands',
+                        style: AppTypography.editorialHeading(
                           color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                         ),
                       ),
@@ -825,12 +814,9 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 children: [
                   Obx(() => Text(
                         controller.selectedDepartment.value == 'All'
-                            ? 'ALL TRENDING STYLES'
-                            : '${controller.selectedDepartment.value.toUpperCase()} COLLECTION',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 0.6,
+                            ? 'Trending now'
+                            : '${controller.selectedDepartment.value} collection',
+                        style: AppTypography.editorialHeading(
                           color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                         ),
                       )),
@@ -841,10 +827,8 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
-                          '${controller.filteredProducts.length} ITEMS',
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w700,
+                          '${controller.filteredProducts.length} items',
+                          style: AppTypography.headingMeta(
                             color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                           ),
                         ),
@@ -857,6 +841,20 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
           // 10. Curated 2-Column Product Grid
           Obx(() {
             final products = controller.filteredProducts;
+            final status = controller.catalogStatus.value;
+
+            if (controller.allProducts.isEmpty && status == LoadStatus.loading) {
+              return const SliverToBoxAdapter(child: ProductGridSkeleton());
+            }
+            if (controller.allProducts.isEmpty && status == LoadStatus.error) {
+              return SliverToBoxAdapter(
+                child: LoadErrorView(
+                  title: 'Couldn\'t load the shop',
+                  message: controller.catalogError.value ?? '',
+                  onRetry: controller.loadCatalog,
+                ),
+              );
+            }
 
             if (products.isEmpty) {
               return SliverToBoxAdapter(
@@ -1101,7 +1099,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
               capsule.imageUrl,
               fit: BoxFit.cover,
               errorBuilder: (_, __, ___) => Container(
-                color: isDark ? const Color(0xFF202024) : const Color(0xFFE8E5DF),
+                color: isDark ? const Color(0xFF1F1B34) : const Color(0xFFE9E5F7),
               ),
               loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) return child;
@@ -1138,9 +1136,8 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                     child: Text(
                       capsule.tag,
                       style: const TextStyle(
-                        fontSize: 9,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.8,
+                        fontSize: 11,
+                        fontWeight: FontWeight.w700,
                         color: Colors.white,
                       ),
                     ),
@@ -1148,9 +1145,10 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                   const SizedBox(height: 6),
                   Text(
                     capsule.title,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w800,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppTypography.editorialHeading(
+                      fontSize: 28,
                       color: Colors.white,
                     ),
                   ),
@@ -1160,24 +1158,23 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 11,
+                      fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: Colors.white70,
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 10),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(18),
                     ),
                     child: Text(
                       capsule.ctaText,
                       style: const TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.5,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
                         color: AppColors.silouSecondary,
                       ),
                     ),

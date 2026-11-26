@@ -7,6 +7,7 @@ import '../../core/constants/app_colors.dart';
 import '../../core/utils/haptic_service.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../product_detail/atelier_pdp_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class AtelierRunwayLiveView extends StatefulWidget {
   const AtelierRunwayLiveView({super.key});
@@ -107,6 +108,7 @@ class _AtelierRunwayLiveViewState extends State<AtelierRunwayLiveView>
               fit: BoxFit.cover,
               width: double.infinity,
               height: double.infinity,
+              errorBuilder: (_, __, ___) => const ImageFallback(width: double.infinity, height: double.infinity),
             ),
           ),
 
@@ -390,6 +392,7 @@ class _AtelierRunwayLiveViewState extends State<AtelierRunwayLiveView>
                       width: 64,
                       height: 80,
                       fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) => const ImageFallback(width: 64, height: 80),
                     ),
                   ),
                   const SizedBox(width: 14),

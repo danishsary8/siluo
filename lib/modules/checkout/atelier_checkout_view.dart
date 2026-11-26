@@ -59,7 +59,7 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
       backgroundColor: isDark ? AppColors.canvasDark : AppColors.canvasLight,
       appBar: AppBar(
         title: Text(
-          'CHECKOUT',
+          'Checkout',
           style: AppTypography.productTitle(
             color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
           ),
@@ -97,8 +97,9 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
               children: [
                 // Delivery Address Card
                 Text(
-                  'DELIVERY ADDRESS',
-                  style: AppTypography.microTag(
+                  'Delivery address',
+                  style: AppTypography.editorialHeading(
+                    fontSize: 20,
                     color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                   ),
                 ),
@@ -160,8 +161,9 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'PACKAGING & PRESENTATION',
-                      style: AppTypography.microTag(
+                      'Packaging',
+                      style: AppTypography.editorialHeading(
+                        fontSize: 20,
                         color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                       ),
                     ),
@@ -275,8 +277,9 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
 
                 // Payment Method Selector
                 Text(
-                  'PAYMENT METHOD',
-                  style: AppTypography.microTag(
+                  'Payment method',
+                  style: AppTypography.editorialHeading(
+                    fontSize: 20,
                     color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                   ),
                 ),
@@ -380,7 +383,7 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Total Payable',
+                        'Total',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,

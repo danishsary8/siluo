@@ -43,8 +43,8 @@ class _EditorialShimmerBoxState extends State<EditorialShimmerBox>
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    final baseColor = isDark ? const Color(0xFF1C1C20) : const Color(0xFFEAE7E1);
-    final highlightColor = isDark ? const Color(0xFF2E2E36) : const Color(0xFFF9F7F3);
+    final baseColor = isDark ? const Color(0xFF1C1832) : const Color(0xFFECE8F8);
+    final highlightColor = isDark ? const Color(0xFF2C2747) : const Color(0xFFF7F5FF);
 
     return AnimatedBuilder(
       animation: _controller,

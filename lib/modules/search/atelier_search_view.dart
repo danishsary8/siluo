@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/atelier_controller.dart';
 import '../../core/constants/app_colors.dart';
+import '../../core/network/load_status.dart';
+import '../../shared/widgets/load_error_view.dart';
+import '../../shared/widgets/product_grid_skeleton.dart';
 import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import '../../shared/widgets/atelier_product_card.dart';
@@ -75,7 +78,7 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'FILTER & SORT',
+                          'Filter & sort',
                           style: AppTypography.sectionTitle(
                             color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                           ),
@@ -108,8 +111,9 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                       children: [
                         // Price Range
                         Text(
-                          'PRICE RANGE',
-                          style: AppTypography.microTag(
+                          'Price range',
+                          style: AppTypography.editorialHeading(
+                            fontSize: 20,
                             color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                           ),
                         ),
@@ -148,8 +152,9 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
 
                         // Size multi-select chips
                         Text(
-                          'SIZES',
-                          style: AppTypography.microTag(
+                          'Sizes',
+                          style: AppTypography.editorialHeading(
+                            fontSize: 20,
                             color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                           ),
                         ),
@@ -201,8 +206,9 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
 
                         // Sort By
                         Text(
-                          'SORT BY',
-                          style: AppTypography.microTag(
+                          'Sort by',
+                          style: AppTypography.editorialHeading(
+                            fontSize: 20,
                             color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                           ),
                         ),
@@ -484,11 +490,11 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'SCANNER',
+                                      'Visual search',
                                       style: AppTypography.microTag(color: AppColors.champagneGold),
                                     ),
                                     Text(
-                                      'Visual Moodboard',
+                                      'Search with a photo',
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -541,11 +547,11 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'AR FIT',
+                                      'Try it on',
                                       style: AppTypography.microTag(color: AppColors.champagneGold),
                                     ),
                                     Text(
-                                      'Virtual Mirror',
+                                      'Virtual mirror',
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -573,6 +579,25 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
             Expanded(
               child: Obx(() {
                 final results = controller.filteredProducts;
+                final status = controller.catalogStatus.value;
+
+                if (controller.allProducts.isEmpty && status == LoadStatus.loading) {
+                  return const SingleChildScrollView(
+                    padding: EdgeInsets.only(top: 16),
+                    child: ProductGridSkeleton(),
+                  );
+                }
+                if (controller.allProducts.isEmpty && status == LoadStatus.error) {
+                  return Center(
+                    child: SingleChildScrollView(
+                      child: LoadErrorView(
+                        title: 'Couldn\'t load the shop',
+                        message: controller.catalogError.value ?? '',
+                        onRetry: controller.loadCatalog,
+                      ),
+                    ),
+                  );
+                }
 
                 if (results.isEmpty) {
                   return Center(
@@ -601,7 +626,9 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                   physics: const BouncingScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.58,
+                    // Fixed height that fits AtelierProductCard (220px image + details);
+                    // an aspect ratio clipped the price and add-to-bag row.
+                    mainAxisExtent: 356,
                     crossAxisSpacing: 14,
                     mainAxisSpacing: 16,
                   ),

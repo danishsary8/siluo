@@ -120,7 +120,7 @@ class _AtelierProductCardState extends State<AtelierProductCard>
                           child: Container(
                             height: imageHeight,
                             width: double.infinity,
-                            color: isDark ? const Color(0xFF242428) : const Color(0xFFF0EFEA),
+                            color: isDark ? const Color(0xFF241F3A) : const Color(0xFFEFECF8),
                             child: Image.network(
                               widget.product.primaryImage,
                               fit: BoxFit.cover,

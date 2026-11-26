@@ -8,6 +8,7 @@ import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../product_detail/atelier_pdp_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class AtelierVisualSearchView extends StatefulWidget {
   const AtelierVisualSearchView({super.key});
@@ -39,7 +40,7 @@ class _AtelierVisualSearchViewState extends State<AtelierVisualSearchView>
       'colors': [
         {'name': 'Obsidian Noir', 'color': Color(0xFF141416)},
         {'name': 'Charcoal Slate', 'color': Color(0xFF38373D)},
-        {'name': 'Warm Alabaster', 'color': Color(0xFFE8E5DF)},
+        {'name': 'Warm Alabaster', 'color': Color(0xFFE9E5F7)},
       ],
       'detectedTexture': 'Double-Faced 520gsm Melton Wool',
     },
@@ -162,6 +163,7 @@ class _AtelierVisualSearchViewState extends State<AtelierVisualSearchView>
                 Image.network(
                   sample['image'] as String,
                   fit: BoxFit.cover,
+                  errorBuilder: ImageFallback.builder,
                 ),
 
                 // Vignette Scrim
@@ -294,7 +296,8 @@ class _AtelierVisualSearchViewState extends State<AtelierVisualSearchView>
                       ),
                     ),
                     clipBehavior: Clip.antiAlias,
-                    child: Image.network(item['image'] as String, fit: BoxFit.cover),
+                    child: Image.network(item['image'] as String, fit: BoxFit.cover,
+ errorBuilder: ImageFallback.builder,),
                   ),
                 );
               },
@@ -419,6 +422,7 @@ class _AtelierVisualSearchViewState extends State<AtelierVisualSearchView>
                           width: 58,
                           height: 72,
                           fit: BoxFit.cover,
+                          errorBuilder: (_, __, ___) => const ImageFallback(width: 58, height: 72),
                         ),
                       ),
                       const SizedBox(width: 14),

@@ -8,6 +8,7 @@ import '../../core/utils/haptic_service.dart';
 import '../../data/models/product_model.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../product_detail/atelier_pdp_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class AtelierCompareView extends StatefulWidget {
   final Product? initialProductA;
@@ -122,6 +123,7 @@ class _AtelierCompareViewState extends State<AtelierCompareView> {
                         child: Image.network(
                           _productA.primaryImage,
                           fit: BoxFit.cover,
+                          errorBuilder: ImageFallback.builder,
                         ),
                       ),
 
@@ -141,6 +143,7 @@ class _AtelierCompareViewState extends State<AtelierCompareView> {
                               child: Image.network(
                                 _productB.primaryImage,
                                 fit: BoxFit.cover,
+                                errorBuilder: ImageFallback.builder,
                               ),
                             ),
                           ),
@@ -373,7 +376,8 @@ class _AtelierCompareViewState extends State<AtelierCompareView> {
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
-                        Image.network(prod.primaryImage, fit: BoxFit.cover),
+                        Image.network(prod.primaryImage, fit: BoxFit.cover,
+ errorBuilder: ImageFallback.builder,),
                         if (isA || isB)
                           Container(
                             color: Colors.black.withValues(alpha: 0.5),

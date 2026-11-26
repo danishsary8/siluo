@@ -33,7 +33,7 @@ class AtelierWishlistView extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'NO SAVED PIECES YET',
+                    'No saved pieces yet',
                     style: AppTypography.sectionTitle(
                       color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                     ),
@@ -55,7 +55,7 @@ class AtelierWishlistView extends StatelessWidget {
                     ),
                     onPressed: () => controller.switchTab(0),
                     child: Text(
-                      'EXPLORE COLLECTION',
+                      'START SHOPPING',
                       style: AppTypography.buttonLabel(
                         color: isDark ? AppColors.canvasDark : Colors.white,
                       ),
@@ -76,14 +76,14 @@ class AtelierWishlistView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'SAVED EDIT',
+                        'Your wishlist',
                         style: AppTypography.sectionTitle(
                           color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                         ),
                       ),
                       Text(
-                        '${wishlisted.length} PIECES',
-                        style: AppTypography.microTag(
+                        '${wishlisted.length} ${wishlisted.length == 1 ? 'piece' : 'pieces'}',
+                        style: AppTypography.headingMeta(
                           color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                         ),
                       ),
@@ -97,7 +97,9 @@ class AtelierWishlistView extends StatelessWidget {
                 sliver: SliverGrid(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.58,
+                    // Fixed height that fits AtelierProductCard (220px image + details);
+                    // an aspect ratio clipped the price and add-to-bag row.
+                    mainAxisExtent: 356,
                     crossAxisSpacing: 14,
                     mainAxisSpacing: 16,
                   ),

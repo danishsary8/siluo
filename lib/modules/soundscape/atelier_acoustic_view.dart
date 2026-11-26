@@ -65,7 +65,7 @@ class _AtelierAcousticViewState extends State<AtelierAcousticView>
     final activeTrack = _tracks[_selectedTrackIndex];
 
     return Scaffold(
-      backgroundColor: const Color(0xFF09090C),
+      backgroundColor: const Color(0xFF08070F),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -227,7 +227,7 @@ class _AtelierAcousticViewState extends State<AtelierAcousticView>
                 margin: const EdgeInsets.only(bottom: 12),
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: isSelected ? const Color(0xFF181820) : const Color(0xFF111115),
+                  color: isSelected ? const Color(0xFF1A1630) : const Color(0xFF111115),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     color: isSelected
@@ -325,13 +325,16 @@ class _AtelierAcousticViewState extends State<AtelierAcousticView>
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Haptic Sub-Bass Transients', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white)),
-                        Text('Tactile motor vibrations synchronized to ambient rhythm', style: TextStyle(fontSize: 10, color: Colors.white54)),
-                      ],
+                    const Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Haptic Sub-Bass Transients', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white)),
+                          Text('Tactile motor vibrations synchronized to ambient rhythm', style: TextStyle(fontSize: 10, color: Colors.white54)),
+                        ],
+                      ),
                     ),
+                    const SizedBox(width: 12),
                     CupertinoSwitch(
                       value: _hapticPulseSync,
                       activeTrackColor: AppColors.champagneGold,

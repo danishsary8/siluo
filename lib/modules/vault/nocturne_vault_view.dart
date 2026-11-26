@@ -5,6 +5,7 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import '../../shared/widgets/editorial_shimmer_box.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class NocturneVaultView extends StatefulWidget {
   const NocturneVaultView({super.key});
@@ -260,6 +261,7 @@ class _NocturneVaultViewState extends State<NocturneVaultView>
                           borderRadius: BorderRadius.zero,
                         );
                       },
+                      errorBuilder: (_, __, ___) => const ImageFallback(width: double.infinity, height: 240),
                     ),
                     Positioned(
                       top: 14,

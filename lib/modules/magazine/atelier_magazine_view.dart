@@ -10,6 +10,7 @@ import '../../data/models/product_model.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../product_detail/atelier_pdp_view.dart';
 import '../journal/atelier_journal_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class MagazineSpread {
   final String issueNumber;
@@ -60,7 +61,7 @@ class _AtelierMagazineViewState extends State<AtelierMagazineView>
       author: 'Éléonore Vance, Creative Director',
       imageUrl:
           'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&auto=format&fit=crop&q=80',
-      pinnedProductId: 'atl_01',
+      pinnedProductId: 'zd_w_01',
       pinAlignment: Offset(0.52, 0.44),
     ),
     MagazineSpread(
@@ -72,7 +73,7 @@ class _AtelierMagazineViewState extends State<AtelierMagazineView>
       author: 'Paris Atelier Notes',
       imageUrl:
           'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1200&auto=format&fit=crop&q=80',
-      pinnedProductId: 'atl_02',
+      pinnedProductId: 'zd_w_02',
       pinAlignment: Offset(0.48, 0.40),
     ),
     MagazineSpread(
@@ -84,7 +85,7 @@ class _AtelierMagazineViewState extends State<AtelierMagazineView>
       author: 'Milan Textile Chronicle',
       imageUrl:
           'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&auto=format&fit=crop&q=80',
-      pinnedProductId: 'atl_03',
+      pinnedProductId: 'zd_w_03',
       pinAlignment: Offset(0.50, 0.48),
     ),
     MagazineSpread(
@@ -96,7 +97,7 @@ class _AtelierMagazineViewState extends State<AtelierMagazineView>
       author: 'Place Vendôme Archives',
       imageUrl:
           'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&auto=format&fit=crop&q=80',
-      pinnedProductId: 'atl_05',
+      pinnedProductId: 'zd_w_05',
       pinAlignment: Offset(0.55, 0.38),
     ),
   ];
@@ -286,6 +287,7 @@ class _AtelierMagazineViewState extends State<AtelierMagazineView>
         Image.network(
           spread.imageUrl,
           fit: BoxFit.cover,
+          errorBuilder: ImageFallback.builder,
         ),
 
         // Editorial Scrim & Vignette
@@ -502,6 +504,7 @@ class _AtelierMagazineViewState extends State<AtelierMagazineView>
               width: 68,
               height: 84,
               fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) => const ImageFallback(width: 68, height: 84),
             ),
           ),
           const SizedBox(width: 14),

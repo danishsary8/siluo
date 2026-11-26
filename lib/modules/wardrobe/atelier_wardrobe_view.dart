@@ -8,6 +8,7 @@ import '../../core/utils/haptic_service.dart';
 import '../../data/models/product_model.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../product_detail/atelier_pdp_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class WardrobeGarment {
   final Product product;
@@ -311,6 +312,7 @@ class _AtelierWardrobeViewState extends State<AtelierWardrobeView> {
                                 child: Image.network(
                                   item.product.primaryImage,
                                   fit: BoxFit.cover,
+                                  errorBuilder: ImageFallback.builder,
                                 ),
                               ),
                               // Selection Checkmark
@@ -403,6 +405,7 @@ class _AtelierWardrobeViewState extends State<AtelierWardrobeView> {
                           width: 60,
                           height: 76,
                           fit: BoxFit.cover,
+                          errorBuilder: (_, __, ___) => const ImageFallback(width: 60, height: 76),
                         ),
                       ),
                       const SizedBox(width: 14),

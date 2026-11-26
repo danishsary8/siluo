@@ -8,6 +8,7 @@ import '../../core/utils/haptic_service.dart';
 import '../../data/models/product_model.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../salon/atelier_salon_booking_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 enum MirrorAmbiance {
   parisDaylight(
@@ -272,6 +273,7 @@ class _AtelierVirtualMirrorViewState extends State<AtelierVirtualMirrorView>
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
+            errorBuilder: (_, __, ___) => const ImageFallback(width: double.infinity, height: double.infinity),
           ),
 
           // Vignette & Reflection Edge Frame

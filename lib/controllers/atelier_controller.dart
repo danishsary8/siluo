@@ -1,13 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../data/models/product_model.dart';
-import '../data/models/cart_item_model.dart';
-import '../data/models/soundscape_model.dart';
-import '../data/mock/mock_atelier_data.dart';
-import '../core/utils/haptic_service.dart';
 
+import '../core/network/load_status.dart';
+import '../core/network/result.dart';
+import '../core/utils/haptic_service.dart';
+import '../data/mock/mock_api_client.dart';
+import '../data/models/capsule_collection.dart';
+import '../data/models/cart_item_model.dart';
+import '../data/models/lookbook_story.dart';
+import '../data/models/product_model.dart';
+import '../data/models/soundscape_model.dart';
+import '../data/repositories/catalog_repository.dart';
+
+/// App-wide shopping state: catalogue, filters, wishlist, bag, currency and
+/// the ambient soundscape.
+///
+/// The catalogue and home content are loaded through [CatalogRepository];
+/// everything else is local UI state.
 class AtelierController extends GetxController {
+  /// Creates the controller. Pass a [repository] backed by a real API client;
+  /// it defaults to the demo [MockApiClient].
+  AtelierController({CatalogRepository? repository})
+      : _repository = repository ?? CatalogRepository(MockApiClient());
+
+  final CatalogRepository _repository;
+
   static AtelierController get to => Get.find<AtelierController>();
+
+  // Catalogue loading
+  /// Load state of the catalogue (products, stories, campaigns).
+  final Rx<LoadStatus> catalogStatus = LoadStatus.loading.obs;
+
+  /// User-facing message for the last failed catalogue load, if any.
+  final RxnString catalogError = RxnString();
+
+  /// Story bubbles on the home screen.
+  final RxList<LookbookStory> stories = <LookbookStory>[].obs;
+
+  /// Hero campaign banners on the home screen.
+  final RxList<CapsuleCollection> campaigns = <CapsuleCollection>[].obs;
+
+  bool _seeded = false;
 
   // Navigation
   final RxInt currentTabIndex = 0.obs;
@@ -52,20 +85,50 @@ class AtelierController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    allProducts.assignAll(mockAtelierProducts);
-    // Pre-populate some favorites for aesthetic discovery
-    wishlistProductIds.addAll(['atl_01', 'atl_02']);
-    // Pre-populate 1 cart item
-    final trench = mockAtelierProducts.first;
-    cartItems.add(
-      CartItem(
-        id: 'cart_init_1',
-        product: trench,
-        selectedSize: 'S',
-        selectedColor: trench.colorVariants.first,
-        quantity: 1,
-      ),
-    );
+    loadCatalog();
+  }
+
+  /// Loads products, stories and campaigns in parallel. Safe to call again
+  /// to retry after a failure.
+  Future<void> loadCatalog() async {
+    catalogStatus.value = LoadStatus.loading;
+    catalogError.value = null;
+    final (products, storyList, campaignList) = await (
+      _repository.fetchProducts(),
+      _repository.fetchStories(),
+      _repository.fetchCampaigns(),
+    ).wait;
+    if (isClosed) return;
+
+    if (storyList case Success(:final value)) stories.assignAll(value);
+    if (campaignList case Success(:final value)) campaigns.assignAll(value);
+    switch (products) {
+      case Success(:final value):
+        allProducts.assignAll(value);
+        _seedDemoState();
+        catalogStatus.value = LoadStatus.ready;
+      case Failure(:final failure):
+        catalogError.value = failure.message;
+        catalogStatus.value = LoadStatus.error;
+    }
+  }
+
+  /// Pre-fills the wishlist and bag once, so the demo has something to show.
+  void _seedDemoState() {
+    if (_seeded || allProducts.length < 3) return;
+    _seeded = true;
+    wishlistProductIds.addAll(allProducts.skip(1).take(2).map((p) => p.id));
+    final first = allProducts.first;
+    if (cartItems.isEmpty && first.colorVariants.isNotEmpty && first.sizes.isNotEmpty) {
+      cartItems.add(
+        CartItem(
+          id: 'cart_init_1',
+          product: first,
+          selectedSize: first.sizes.length > 1 ? first.sizes[1] : first.sizes.first,
+          selectedColor: first.colorVariants.first,
+        ),
+      );
+    }
   }
 
   void switchTab(int index) {

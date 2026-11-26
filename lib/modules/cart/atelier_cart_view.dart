@@ -63,14 +63,14 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'YOUR SHOPPING BAG IS EMPTY',
+                    'Your bag is empty',
                     style: AppTypography.sectionTitle(
                       color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Discover timeless pieces from our latest runway edit.',
+                    'Pieces you add will appear here.',
                     style: AppTypography.body(
                       color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                     ),
@@ -85,7 +85,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                     ),
                     onPressed: () => controller.switchTab(0),
                     child: Text(
-                      'EXPLORE RUNWAY',
+                      'START SHOPPING',
                       style: AppTypography.buttonLabel(
                         color: isDark ? AppColors.canvasDark : Colors.white,
                       ),
@@ -109,14 +109,14 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'SHOPPING BAG',
+                            'Your bag',
                             style: AppTypography.sectionTitle(
                               color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                             ),
                           ),
                           Text(
-                            '${controller.totalCartItemsCount} ITEMS',
-                            style: AppTypography.microTag(
+                            '${controller.totalCartItemsCount} ${controller.totalCartItemsCount == 1 ? 'item' : 'items'}',
+                            style: AppTypography.headingMeta(
                               color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                             ),
                           ),
@@ -156,8 +156,8 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'PROMOTION CODE',
-                              style: AppTypography.microTag(
+                              'Promo code',
+                              style: AppTypography.headingMeta(
                                 color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                               ),
                             ),
@@ -169,7 +169,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                                     height: 44,
                                     padding: const EdgeInsets.symmetric(horizontal: 14),
                                     decoration: BoxDecoration(
-                                      color: isDark ? const Color(0xFF17132C) : const Color(0xFFF7F6F3),
+                                      color: isDark ? const Color(0xFF17132C) : const Color(0xFFF5F3FD),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: TextField(
@@ -179,7 +179,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                                         color: isDark ? Colors.white : Colors.black,
                                       ),
                                       decoration: const InputDecoration(
-                                        hintText: 'Enter ATELIER15',
+                                        hintText: 'Enter a code, e.g. SILOU20',
                                         hintStyle: TextStyle(fontSize: 13, color: Colors.grey),
                                         border: InputBorder.none,
                                         isDense: true,
@@ -254,16 +254,16 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                             ],
                             const SizedBox(height: 10),
                             _buildSummaryRow(
-                              'Estimated Shipping',
+                              'Shipping',
                               controller.shippingFee == 0
-                                  ? 'COMPLIMENTARY'
+                                  ? 'Free'
                                   : controller.formatPrice(controller.shippingFee),
                               isDark,
                               isFreeShipping: controller.shippingFee == 0,
                             ),
                             const SizedBox(height: 10),
                             _buildSummaryRow(
-                              'Estimated Tax (8%)',
+                              'Estimated tax (8%)',
                               controller.formatPrice(controller.taxAmount),
                               isDark,
                             ),
@@ -272,7 +272,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                               child: Divider(height: 1),
                             ),
                             _buildSummaryRow(
-                              'Estimated Total',
+                              'Total',
                               controller.formatPrice(controller.grandTotal),
                               isDark,
                               isTotal: true,
@@ -309,8 +309,8 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'ORDER TOTAL',
-                            style: AppTypography.microTag(
+                            'Order total',
+                            style: AppTypography.headingMeta(
                               color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                             ),
                           ),
@@ -408,7 +408,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
               height: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
-                color: isDark ? const Color(0xFF242428) : const Color(0xFFF0EFEA),
+                color: isDark ? const Color(0xFF241F3A) : const Color(0xFFEFECF8),
               ),
               clipBehavior: Clip.antiAlias,
               child: Image.network(
@@ -514,7 +514,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                       // Quantity Stepper
                       Container(
                         decoration: BoxDecoration(
-                          color: isDark ? const Color(0xFF26262B) : const Color(0xFFF5F4F0),
+                          color: isDark ? const Color(0xFF27223F) : const Color(0xFFF3F1FB),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Row(

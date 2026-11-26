@@ -9,7 +9,7 @@ import '../models/lookbook_story.dart';
 final List<LookbookStory> mockStories = [
   const LookbookStory(
     id: 's_flash',
-    label: '⚡ Flash Sale',
+    label: 'Flash Sale',
     imageUrl: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=600&q=80',
   ),
   const LookbookStory(
@@ -55,35 +55,35 @@ final List<LookbookStory> mockStories = [
 final List<CapsuleCollection> mockCapsules = [
   const CapsuleCollection(
     id: 'c1',
-    tag: '⚡ FLASH SALE • TODAY ONLY',
+    tag: 'Flash sale, today only',
     title: 'Up To 70% Off Everything',
     subtitle: 'Over 12,000 summer styles, sneakers, and denim marked down.',
     imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=85',
-    ctaText: 'SHOP FLASH SALE',
+    ctaText: 'Shop the sale',
   ),
   const CapsuleCollection(
     id: 'c2',
-    tag: '🔥 STREETWEAR DROP // NEW IN',
+    tag: 'New streetwear drop',
     title: 'Nike, Adidas & Street Icons',
     subtitle: 'Limited sneaker releases, graphic hoodies, and retro tracksuits.',
     imageUrl: 'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=1400&q=85',
-    ctaText: 'SHOP STREETWEAR',
+    ctaText: 'Shop streetwear',
   ),
   const CapsuleCollection(
     id: 'c3',
-    tag: '🌿 SUMMER VIBES // ZARA & MANGO',
+    tag: 'Summer edit by Zara & Mango',
     title: 'Effortless Linen & Dresses',
     subtitle: 'Breezy silhouettes and warm neutrals crafted for sunny escapes.',
     imageUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=85',
-    ctaText: 'EXPLORE SUMMER EDIT',
+    ctaText: 'Shop the summer edit',
   ),
   const CapsuleCollection(
     id: 'c4',
-    tag: '👖 DENIM DESTINATION // LEVI’S',
+    tag: 'Denim week at Levi’s',
     title: 'Vintage Fit & Wide Leg Edit',
     subtitle: 'Buy 1, Get 2nd at 50% Off. The jeans you will live in all season.',
     imageUrl: 'https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=1400&q=85',
-    ctaText: 'SHOP DENIM EDIT',
+    ctaText: 'Shop denim',
   ),
 ];
 

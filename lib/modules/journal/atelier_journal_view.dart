@@ -8,6 +8,7 @@ import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../product_detail/atelier_pdp_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class JournalSection {
   final String? subtitle;
@@ -70,7 +71,7 @@ class JournalArticle {
             'When Cristóbal Balenciaga famously stated that a couturier must be an architect for patterns, a sculptor for form, and a philosopher for proportion, he was contemplating the exact threshold where textile surrenders to gravity. In modern tailoring, volume is no longer built through aggressive boning or rigid interfacings; it is carved from emptiness. Our 520gsm Melton Wool overcoat does not cling to the silhouette; it hovers suspended from the acromion, establishing an aerodynamic envelope between the skin and the winter breeze.',
         pullQuote:
             '“True elegance does not demand attention; it commands stillness through absolute mastery of weight.”',
-        featuredProductId: 'atl_01',
+        featuredProductId: 'zd_w_01',
       ),
       JournalSection(
         subtitle: 'II. Biella: Where Alpine Snow Melt Softens Wool',
@@ -87,7 +88,7 @@ class JournalArticle {
             'Observe the pitch of the sleeve seam. By rotating the sleeve head backward by exactly 4 degrees, the garment anticipates the natural forward stance of the human stride. The hem does not swing erratically; it ripples with mathematical harmonic frequency, creating a silhouette that looks as deliberate when stationary as it does navigating the cobblestones of the Place Vendôme.',
         pullQuote:
             '“The garment is a living kinetic sculpture; it only completes its composition when worn in the street.”',
-        featuredProductId: 'atl_02',
+        featuredProductId: 'zd_w_02',
       ),
       JournalSection(
         subtitle: 'IV. Epilogue: Permanence Over Novelty',
@@ -257,6 +258,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
                       Image.network(
                         _article.heroImageUrl,
                         fit: BoxFit.cover,
+                        errorBuilder: ImageFallback.builder,
                       ),
                       // Luxury Film Scrim Gradient
                       DecoratedBox(
@@ -609,7 +611,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
                 fontSize: _fontSize,
                 height: 1.7,
                 fontWeight: FontWeight.w400,
-                color: isDark ? const Color(0xFFD6D6DD) : const Color(0xFF2C2C30),
+                color: isDark ? const Color(0xFFD6D6DD) : const Color(0xFF2B2645),
               ),
             ),
 
@@ -654,6 +656,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: 240,
+                errorBuilder: (_, __, ___) => const ImageFallback(width: double.infinity, height: 240),
               ),
             ),
             if (section.imageCaption != null) ...[
@@ -704,7 +707,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
               fontSize: _fontSize,
               height: 1.7,
               fontWeight: FontWeight.w400,
-              color: isDark ? const Color(0xFFD6D6DD) : const Color(0xFF2C2C30),
+              color: isDark ? const Color(0xFFD6D6DD) : const Color(0xFF2B2645),
             ),
           ),
         ),
@@ -751,6 +754,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
                 width: 65,
                 height: 80,
                 fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => const ImageFallback(width: 65, height: 80),
               ),
             ),
             const SizedBox(width: 14),

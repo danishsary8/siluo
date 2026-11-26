@@ -186,8 +186,8 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            widget.product.category.toUpperCase(),
-                            style: AppTypography.microTag(
+                            widget.product.category,
+                            style: AppTypography.headingMeta(
                               color: isDark ? AppColors.champagneGold : AppColors.textMuted,
                             ),
                           ),
@@ -355,10 +355,10 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
 
                       // 3. Interactive Color Swatches
                       Text(
-                        'COLOR: ${_selectedColor.name.toUpperCase()}',
-                        style: AppTypography.microTag(
+                        'Color: ${_selectedColor.name}',
+                        style: AppTypography.headingMeta(
                           color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
-                        ),
+                        ).copyWith(fontSize: 14),
                       ),
                       const SizedBox(height: 12),
                       Row(
@@ -402,10 +402,10 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'SELECT SIZE',
-                            style: AppTypography.microTag(
+                            'Size',
+                            style: AppTypography.headingMeta(
                               color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
-                            ),
+                            ).copyWith(fontSize: 14),
                           ),
                           GestureDetector(
                             onTap: () {
@@ -510,16 +510,16 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'INSPECT WEAVE & TEXTURE',
-                                      style: AppTypography.microTag(color: AppColors.champagneGold),
+                                      'Inspect weave & texture',
+                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight),
                                     ),
                                     const SizedBox(height: 2),
                                     Text(
-                                      'Interactive 3.5x Macro Loupe Inspection',
+                                      'Zoom in 3.5× on the fabric',
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
-                                        color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
+                                        color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                                       ),
                                     ),
                                   ],
@@ -568,14 +568,12 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'SIMULATE STRIDE & DRAPE',
-                                      style: AppTypography.microTag(
-                                        color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
-                                      ),
+                                      'See how it moves',
+                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight),
                                     ),
                                     const SizedBox(height: 2),
                                     Text(
-                                      'Interactive 0–6 km/h Aerodynamic Hem Motion',
+                                      'Watch the hem move as you walk',
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
@@ -628,14 +626,12 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '360° SILHOUETTE TURNTABLE',
-                                      style: AppTypography.microTag(
-                                        color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
-                                      ),
+                                      '360° view',
+                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight),
                                     ),
                                     const SizedBox(height: 2),
                                     Text(
-                                      'Interactive 8-Frame Rotational Inspection',
+                                      'Turn the piece all the way around',
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
@@ -706,8 +702,10 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                                     Row(
                                       children: [
                                         Text(
-                                          'BESPOKE MONOGRAMMING',
-                                          style: AppTypography.microTag(
+                                          'Add a monogram',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
                                             color: _monogramConfig != null
                                                 ? AppColors.champagneGold
                                                 : (isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight),
@@ -722,12 +720,11 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                                               borderRadius: BorderRadius.circular(4),
                                             ),
                                             child: const Text(
-                                              'CONFIGURED',
+                                              'Added',
                                               style: TextStyle(
-                                                fontSize: 9,
+                                                fontSize: 10,
                                                 fontWeight: FontWeight.w700,
-                                                letterSpacing: 0.5,
-                                                color: Colors.black,
+                                                color: Colors.white,
                                               ),
                                             ),
                                           ),
@@ -738,7 +735,7 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                                     Text(
                                       _monogramConfig != null
                                           ? 'Initials "${_monogramConfig!.initials}" • ${_monogramConfig!.threadName} • ${_monogramConfig!.placement}'
-                                          : 'Complimentary Haute Couture Thread Personalization',
+                                          : 'Free initials, stitched by hand',
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: _monogramConfig != null ? FontWeight.w600 : FontWeight.w500,
@@ -777,8 +774,8 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: isDark
-                                  ? [const Color(0xFF1B1B22), const Color(0xFF121216)]
-                                  : [const Color(0xFFFAF7F2), const Color(0xFFF1ECE4)],
+                                  ? [const Color(0xFF1D1836), const Color(0xFF110E22)]
+                                  : [const Color(0xFFFAF8FF), const Color(0xFFEFEAFF)],
                             ),
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
@@ -806,16 +803,16 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'SALON MIROIR VIRTUEL',
-                                      style: AppTypography.microTag(color: AppColors.champagneGold),
+                                      'Virtual try-on',
+                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight),
                                     ),
                                     const SizedBox(height: 2),
                                     Text(
-                                      'AR Silhouette Fit, Drape Scan & Lighting Studio',
+                                      'See it on you with your camera',
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600,
-                                        color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
+                                        color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                                       ),
                                     ),
                                   ],
@@ -867,14 +864,16 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                           children: [
                             const SizedBox(height: 28),
                             Text(
-                              'YOU MAY ALSO APPRECIATE',
-                              style: AppTypography.microTag(
-                                color: isDark ? AppColors.champagneGold : AppColors.textPrimaryLight,
+                              'You may also like',
+                              style: AppTypography.editorialHeading(
+                                fontSize: 22,
+                                color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                               ),
                             ),
                             const SizedBox(height: 14),
                             SizedBox(
-                              height: 310,
+                              // Fits AtelierProductCard's natural height (220px image + details).
+                              height: 356,
                               child: ListView.separated(
                                 scrollDirection: Axis.horizontal,
                                 physics: const BouncingScrollPhysics(),
@@ -943,7 +942,7 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                       images[index],
                       fit: BoxFit.cover,
                       errorBuilder: (_, __, ___) => Container(
-                        color: isDark ? const Color(0xFF1E1E22) : const Color(0xFFEAE7E0),
+                        color: isDark ? const Color(0xFF1E1A33) : const Color(0xFFE9E5F7),
                         child: const Center(
                           child: Icon(Icons.broken_image, size: 48, color: Colors.grey),
                         ),
@@ -1224,8 +1223,8 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'TOTAL',
-                    style: AppTypography.microTag(
+                    'Total',
+                    style: AppTypography.headingMeta(
                       color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                     ),
                   ),

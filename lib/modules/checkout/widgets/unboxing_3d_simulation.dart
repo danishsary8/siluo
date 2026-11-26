@@ -6,6 +6,7 @@ import '../../../core/constants/app_typography.dart';
 import '../../../core/utils/haptic_service.dart';
 import '../../../data/models/product_model.dart';
 import '../../../shared/widgets/liquid_glass_container.dart';
+import '../../../shared/widgets/image_fallback.dart';
 
 class Unboxing3dSimulation extends StatefulWidget {
   final Product product;
@@ -373,6 +374,7 @@ class _Unboxing3dSimulationState extends State<Unboxing3dSimulation>
                 height: 160,
                 width: 140,
                 fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => const ImageFallback(width: 140, height: 160),
               ),
             ),
             const SizedBox(height: 12),

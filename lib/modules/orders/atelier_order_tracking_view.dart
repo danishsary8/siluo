@@ -8,6 +8,7 @@ import '../../core/utils/haptic_service.dart';
 import '../authenticity/atelier_passport_view.dart';
 import '../checkout/widgets/unboxing_3d_simulation.dart';
 import 'atelier_courier_map_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class AtelierOrderTrackingView extends StatelessWidget {
   final String orderId;
@@ -190,14 +191,17 @@ class AtelierOrderTrackingView extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    step['title'] as String,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 13,
-                                      color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
+                                  Expanded(
+                                    child: Text(
+                                      step['title'] as String,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 13,
+                                        color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
+                                      ),
                                     ),
                                   ),
+                                  const SizedBox(width: 8),
                                   Text(
                                     step['time'] as String,
                                     style: TextStyle(
@@ -254,6 +258,7 @@ class AtelierOrderTrackingView extends StatelessWidget {
                     width: 60,
                     height: 76,
                     fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => const ImageFallback(width: 60, height: 76),
                   ),
                 ),
                 const SizedBox(width: 14),

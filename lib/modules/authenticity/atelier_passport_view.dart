@@ -124,7 +124,7 @@ class _AtelierPassportViewState extends State<AtelierPassportView>
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF131318),
+                        color: const Color(0xFF15122A),
                         borderRadius: BorderRadius.circular(28),
                         border: Border.all(
                           color: AppColors.champagneGold.withValues(alpha: 0.6),

@@ -101,29 +101,48 @@ A violet → coral **signature gradient** (`AppColors.signatureGradient`) is use
 
 ```text
 lib/
-├── main.dart                 # Bootstrap: storage, controllers, theme, routes
-├── controllers/
-│   ├── atelier_controller.dart   # Catalog, filters, wishlist, bag, currency, soundscape
-│   ├── account_controller.dart   # Addresses, measurements, inbox, order history
-│   └── ...                       # Older controllers kept for the legacy screens
+├── main.dart                 # Composition root: error net, ApiClient, controllers, theme, routes
+├── controllers/              # GetX state: AtelierController (shop), AccountController (account)
 ├── core/
-│   ├── constants/            # AppColors, AppTypography
+│   ├── constants/            # AppColors, AppTypography (design tokens)
+│   ├── network/              # ApiClient, Result<T>, AppFailure, LoadStatus
 │   ├── theme/                # Light & dark ThemeData
 │   └── utils/                # HapticService, MotionCurves
-├── data/                     # Models + mock catalog
+├── data/
+│   ├── models/               # Typed models with fromJson / toJson
+│   ├── repositories/         # CatalogRepository, AccountRepository (JSON → models, errors → Failure)
+│   └── mock/                 # Demo data + MockApiClient (stands in for the REST backend)
 ├── modules/                  # One folder per feature
 │   ├── shell/                # Bottom tab bar (Home · Search · Bag · Wishlist · Profile)
 │   ├── home/  search/  product_detail/  cart/  checkout/  orders/
 │   ├── account/              # Addresses, measurements, inbox, order history
 │   └── try_on/  runway/  vault/  salon/  ...   # Atelier showcase screens
 ├── routes/                   # Named routes (GetX)
-└── shared/widgets/           # LiquidGlass, product cards, haptic buttons, shimmer
-test/
-└── account_pages_test.dart   # Widget tests for the account pages
+└── shared/widgets/           # Product card, image fallback, skeletons, error panel, glass
+assets/google_fonts/          # Bundled Plus Jakarta Sans & Cormorant Garamond (OFL)
+docs/API.md                   # REST contract the backend should implement
+test/                         # Unit, widget and screen smoke tests
 ```
 
-**State:** GetX (`Rx` values + `Obx`), with two app-wide controllers: `AtelierController` for
-shopping and `AccountController` for the user's account data.
+**Data flow:**
+
+```text
+Screens ─▶ Controllers ─▶ Repositories ─▶ ApiClient ─▶ (MockApiClient today, REST API later)
+              ▲                 │
+              └─ Result<T> ◀────┘   errors become friendly messages, never crashes
+```
+
+- **State:** GetX (`Rx` values + `Obx`). Controllers expose `LoadStatus` (loading / ready / error), and screens show a skeleton while loading and a "Try again" panel on failure.
+- **Errors:** repositories return `Result<T>`. Failures are typed (`NetworkFailure`, `ServerFailure`, `NotFoundFailure`, `ParseFailure`) and each carries a plain-language message.
+- **Images:** every network image has a sized fallback, so a missing photo never breaks a layout.
+
+### Tests
+
+| File | Covers |
+| :--- | :--- |
+| `test/data_layer_test.dart` | JSON round-trips, malformed payloads, error mapping, controller loading/error states, retry panel |
+| `test/account_pages_test.dart` | Addresses, measurements, inbox, order history interactions |
+| `test/screens_smoke_test.dart` | Opens 19 customer screens in light **and** dark mode and fails on any overflow or error |
 
 ---
 
@@ -191,9 +210,10 @@ flutter build web --release --no-web-resources-cdn
 - [ ] **Push notifications** for orders, new drops and offers
 - [ ] **Admin dashboard** for store owners to manage products and orders
 
-The app is ready for this step: all data already flows through the GetX controllers
-(`AtelierController`, `AccountController`), so each one can be switched from demo data
-to API calls without redesigning the screens.
+The app is ready for this step. All remote data already flows through repositories and an
+`ApiClient` interface, and the expected endpoints and JSON shapes are documented in
+**[docs/API.md](docs/API.md)**. Connecting the backend means adding an HTTP `ApiClient` and
+registering it in `lib/main.dart`, with no screen changes.
 
 ---
 

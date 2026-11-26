@@ -8,6 +8,7 @@ import '../../core/utils/haptic_service.dart';
 import '../../data/models/product_model.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../product_detail/atelier_pdp_view.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class RunwayStorySlide {
   final String imageUrl;
@@ -373,6 +374,7 @@ class _AtelierRunwayStoryViewState extends State<AtelierRunwayStoryView>
               width: 56,
               height: 72,
               fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) => const ImageFallback(width: 56, height: 72),
             ),
           ),
           const SizedBox(width: 14),

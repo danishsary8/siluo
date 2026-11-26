@@ -377,6 +377,12 @@ class _AddressFormSheetState extends State<AddressFormSheet> {
                       label: Text(l),
                       selected: _label == l,
                       selectedColor: AppColors.champagneGold,
+                      showCheckmark: false,
+                      backgroundColor: AccountUi.surface(context),
+                      side: BorderSide(
+                        color: _label == l ? Colors.transparent : AccountUi.border(context),
+                      ),
+                      shape: const StadiumBorder(),
                       labelStyle: TextStyle(
                         color: _label == l ? Colors.white : AccountUi.text(context),
                         fontWeight: FontWeight.w600,

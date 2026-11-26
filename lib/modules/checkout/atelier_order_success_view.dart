@@ -79,14 +79,14 @@ class _AtelierOrderSuccessViewState extends State<AtelierOrderSuccessView>
               const SizedBox(height: 32),
 
               Text(
-                'ORDER CONFIRMED',
+                'Order confirmed',
                 style: AppTypography.displayHero(
                   color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                 ),
               ),
               const SizedBox(height: 12),
               Text(
-                'Thank you for curating with ATELIER. Your order has been placed and is being prepared in our Paris workshop.',
+                'Thank you for shopping with SILOU. Your order has been placed and is being prepared in our Paris workshop.',
                 textAlign: TextAlign.center,
                 style: AppTypography.body(
                   color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
@@ -110,7 +110,7 @@ class _AtelierOrderSuccessViewState extends State<AtelierOrderSuccessView>
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Order Reference',
+                          'Order number',
                           style: TextStyle(
                             fontSize: 13,
                             color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
@@ -135,14 +135,14 @@ class _AtelierOrderSuccessViewState extends State<AtelierOrderSuccessView>
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Estimated Delivery',
+                          'Estimated delivery',
                           style: TextStyle(
                             fontSize: 13,
                             color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                           ),
                         ),
                         Text(
-                          'Oct 24 - Oct 27 (Express)',
+                          _deliveryWindow(DateTime.now()),
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
@@ -220,4 +220,12 @@ class _AtelierOrderSuccessViewState extends State<AtelierOrderSuccessView>
       ),
     );
   }
+}
+
+/// Express delivery window shown after checkout: 2 to 5 days from [orderedAt],
+/// e.g. `Nov 28 – Dec 1`.
+String _deliveryWindow(DateTime orderedAt) {
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  String fmt(DateTime d) => '${months[d.month - 1]} ${d.day}';
+  return '${fmt(orderedAt.add(const Duration(days: 2)))} – ${fmt(orderedAt.add(const Duration(days: 5)))}';
 }

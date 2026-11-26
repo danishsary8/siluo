@@ -7,6 +7,7 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
+import '../../shared/widgets/image_fallback.dart';
 
 class AtelierCourierMapView extends StatefulWidget {
   final String orderId;
@@ -73,7 +74,7 @@ class _AtelierCourierMapViewState extends State<AtelierCourierMapView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF09090C),
+      backgroundColor: const Color(0xFF08070F),
       body: Stack(
         children: [
           // 1. High-Fashion Vector Map Canvas
@@ -285,6 +286,7 @@ class _AtelierCourierMapViewState extends State<AtelierCourierMapView>
                                 child: Image.network(
                                   'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
                                   fit: BoxFit.cover,
+                                  errorBuilder: ImageFallback.builder,
                                 ),
                               ),
                               const SizedBox(width: 14),
@@ -493,7 +495,7 @@ class _HauteCoutureMapPainter extends CustomPainter {
 
     // 2. Parisian City Grid Lines (Haussmann Boulevards)
     final gridPaint = Paint()
-      ..color = const Color(0xFF1B1B22)
+      ..color = const Color(0xFF1D1836)
       ..strokeWidth = 1.2
       ..style = PaintingStyle.stroke;
 

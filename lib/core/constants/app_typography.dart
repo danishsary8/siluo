@@ -95,4 +95,26 @@ class AppTypography {
         letterSpacing: 0.5,
         color: color,
       );
+
+  /// Editorial section heading: the magazine-style serif used for section
+  /// titles in sentence case ("Official brands", "Your bag").
+  static TextStyle editorialHeading({
+    Color color = AppColors.textPrimaryLight,
+    double fontSize = 24,
+  }) =>
+      GoogleFonts.cormorantGaramond(
+        fontSize: fontSize,
+        fontWeight: FontWeight.w700,
+        letterSpacing: -0.2,
+        height: 1.1,
+        color: color,
+      );
+
+  /// Small supporting count / meta text beside a heading ("11 items").
+  static TextStyle headingMeta({Color color = AppColors.textMuted}) =>
+      GoogleFonts.plusJakartaSans(
+        fontSize: 12,
+        fontWeight: FontWeight.w600,
+        color: color,
+      );
 }
