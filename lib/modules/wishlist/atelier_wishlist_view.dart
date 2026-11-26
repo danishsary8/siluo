@@ -55,7 +55,7 @@ class AtelierWishlistView extends StatelessWidget {
                     ),
                     onPressed: () => controller.switchTab(0),
                     child: Text(
-                      'EXPLORE COLLECTION',
+                      'START SHOPPING',
                       style: AppTypography.buttonLabel(
                         color: isDark ? AppColors.canvasDark : Colors.white,
                       ),

@@ -70,7 +70,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Discover timeless pieces from our latest runway edit.',
+                    'Pieces you add will appear here.',
                     style: AppTypography.body(
                       color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                     ),
@@ -85,7 +85,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                     ),
                     onPressed: () => controller.switchTab(0),
                     child: Text(
-                      'EXPLORE RUNWAY',
+                      'START SHOPPING',
                       style: AppTypography.buttonLabel(
                         color: isDark ? AppColors.canvasDark : Colors.white,
                       ),
