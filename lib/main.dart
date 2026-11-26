@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'controllers/account_controller.dart';
 import 'controllers/atelier_controller.dart';
 import 'controllers/cart_controller.dart';
 import 'controllers/notifications_controller.dart';
@@ -29,6 +30,7 @@ void main() async {
 
   // Initialize Atelier controller
   Get.put(AtelierController());
+  Get.put(AccountController());
 
   // Legacy controllers for backward compatibility
   Get.put(CartController());

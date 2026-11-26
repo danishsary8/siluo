@@ -2,149 +2,167 @@
 
 # SILOU<span style="color:#FF4838;">.</span>
 
-### Modern Fashion, Streetwear & Interactive Atelier Commerce — Built with Flutter
+**A fashion & streetwear shopping app UI, built with Flutter.**
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
-[![Dart](https://img.shields.io/badge/Dart-%3E%3D3.3.0-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
-[![State Management](https://img.shields.io/badge/GetX-4.6.6-8A2BE2?style=for-the-badge)](https://pub.dev/packages/get)
-[![Platforms](https://img.shields.io/badge/Platforms-iOS%20%7C%20Android%20%7C%20Web-111827?style=for-the-badge)](#getting-started)
-[![Deploy](https://img.shields.io/badge/Netlify-Web%20Ready-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](./netlify.toml)
+[![Dart](https://img.shields.io/badge/Dart-%3E%3D3.3-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![GetX](https://img.shields.io/badge/GetX-4.6-8A2BE2?style=for-the-badge)](https://pub.dev/packages/get)
+[![Platforms](https://img.shields.io/badge/iOS%20·%20Android%20·%20Web-111827?style=for-the-badge)](#-getting-started)
+[![Netlify](https://img.shields.io/badge/Netlify-ready-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](./netlify.toml)
 
-*Curated multi-brand fashion and streetwear shopping fused with tactile, editorial-grade mobile experiences.*
+*Browse → try on → personalise → check out → track. Every screen is interactive.*
 
 </div>
 
 ---
 
-## Overview
+## ✨ What is SILOU?
 
-**SILOU.** (inspired by *silhouette*) is a cross-platform Flutter fashion e-commerce application designed to go far beyond a conventional shopping template. It pairs high-conversion multi-brand discovery—flash sales, lookbook stories, live filtering, and instant checkout—with bespoke interactive experiences including a **360° Product Turntable**, **Fabric Weave Loupe**, **Kinetic Drape Preview**, **Virtual Mirror**, **Live Runway**, and **Nocturne Vault**.
+**SILOU** (from *silhouette*) is a **frontend-only** Flutter app that shows what a premium
+fashion e-commerce experience can feel like on mobile. It runs entirely on local demo data —
+no backend, no accounts, no payments — so you can open it and tap through every flow.
 
-Built with a modular **GetX** architecture, **Light & Dark editorial themes**, liquid-glass surfaces, custom motion curves, and subtle haptic feedback throughout.
+It has two layers:
+
+1. **The shop** — home feed, search & filters, product pages, wishlist, bag, promo codes, checkout and order tracking.
+2. **The atelier** — showcase screens that go beyond a normal store: a 360° turntable, fabric zoom, virtual mirror, monogram studio, live runway, VIP club, salon booking and more.
+
+> 🎯 **Purpose:** a portfolio / UI-showcase project, and a starting point for a real fashion store front end.
 
 ---
 
-## Key Features
+## 📱 Features
 
-### Discovery & High-Conversion Shopping
-- **Cinematic Splash & Editorial Home Feed:** Animated hero splash screen, circular lookbook story feed, flash sale banners, and curated brand edits.
-- **Smart Search & Visual Search:** Instant catalog filtering by category, brand, price range, and size, plus a dedicated Visual Search module.
-- **Rich Product Detail Page (PDP):** Multi-angle imagery, size/color selection, customer reviews modal, side-by-side product comparison, and interactive material inspection.
-- **Cart, Wishlist & Seamless Checkout:** Persistent local storage (`get_storage`), animated wishlist hearts, promo code engine (`SILOU20`, `SAVE20`, `ATELIER15`, `WELCOME15`), packaging selection, 3D unboxing simulation, and live courier order tracking.
-
-### Signature Interactive Atelier Experiences
-| Module | Experience |
+### 🛍️ Shopping
+| Screen | What you can do |
 | :--- | :--- |
-| **360° Turntable & Fabric Loupe** | Inspect silhouettes from every angle, zoom into fabric weave detail, and preview kinetic drape motion. |
-| **Virtual Mirror & Bespoke Tailor** | Interactive virtual try-on interface and custom tailoring measurement modal. |
-| **Monogram & Gifting Studio** | Personalize pieces with custom monograms and luxury gift packaging options. |
-| **Runway Live & Editorial Magazine** | Shoppable runway stories, editorial journal, lookbook "Style the Look" curation, and digital magazine. |
-| **Nocturne Vault & VIP Club** | Members-only vault drops, VIP tier perks, private salon booking, and concierge consultation suite. |
-| **Authenticity Passport & Wardrobe** | Digital authenticity verification, personal wardrobe manager, fabric swatch ordering, and ambient acoustic soundscapes. |
+| **Home** | Stories, hero campaigns, flash deals, brand filter, best sellers, light/dark toggle, inbox bell |
+| **Search** | Live text search, category / brand / size / price filters, sorting, visual search |
+| **Product page** | Gallery, size & colour pickers, reviews, compare, add to bag with a bounce animation |
+| **Wishlist** | Animated hearts, synced with every product card |
+| **Bag** | Quantity stepper, swipe to remove, promo codes, multi-currency totals |
+| **Checkout** | Address picker, gift packaging, 3D unboxing preview, success screen |
+| **Order tracking** | Timeline and a live courier map |
+
+### 👤 Account *(new)*
+| Screen | What you can do |
+| :--- | :--- |
+| **Saved addresses** | Add / edit with a validated form, set default, swipe to delete. Also used as the address picker in checkout |
+| **My measurements** | Sliders and +/- steppers for 6 body measurements, preferred fit, and a **live size recommendation** |
+| **Inbox** | Filter by Orders / Drops / Offers / Atelier, unread dots, mark all read, swipe to delete with **Undo** |
+| **My orders** | Full order history with In Transit / Delivered / Returned tabs, each opening its tracking page |
+
+### 🪡 Atelier showcase
+360° Turntable · Fabric Weave Loupe · Kinetic Drape · Bespoke Tailor · Virtual Mirror ·
+Monogram Studio · Gifting · Style the Look · Runway Live · Magazine & Journal ·
+Nocturne Vault · VIP Club · Salon Booking · Video Consultation · Authenticity Passport ·
+Digital Wardrobe · Swatch Ordering · Heritage Archive · Acoustic Soundscapes
 
 ---
 
-## Design System
+## 🎨 Design system
 
-SILOU balances crisp editorial minimalism with bold, energetic retail accents across both **Light** and **Dark** themes:
-
-| Token | Hex | Role |
+| Token | Hex | Used for |
 | :--- | :--- | :--- |
-| **SILOU Coral** | `#FF4838` | Primary brand accent, CTAs, active states |
-| **Warm Stone White** | `#FAFAF9` | Editorial light canvas background |
-| **Obsidian Canvas** | `#0E0E10` | Deep dark mode background |
-| **Modern Slate Onyx** | `#0F172A` | High-contrast typography & secondary surfaces |
-| **Champagne Gold** | `#C5A880` | Luxury atelier & VIP highlights |
-| **Flash Deal Amber** | `#FF9800` | Flash sales & urgency badges |
+| **SILOU Coral** | `#FF4838` | Brand accent, badges, active states |
+| **Champagne Gold** | `#C5A880` | Atelier / VIP highlights, selected states |
+| **Obsidian CTA** | `#1C1917` | Primary buttons |
+| **Stone White** | `#FAFAF9` | Light canvas |
+| **Obsidian Canvas** | `#0E0E10` | Dark canvas |
+| **Flash Amber** | `#FF9800` | Deals & urgency |
 
-- **Typography:** `Poppins` & `Google Fonts` editorial hierarchy
-- **Motion & Tactility:** Custom `MotionCurves`, `LiquidGlassContainer` frosted overlays, shimmer skeletons, and `HapticService` micro-feedback
+- **Light & dark themes** — switchable from Home or Profile.
+- **Motion** — press-scale buttons, staggered list entrances, animated switchers, custom curves (`core/utils/motion_curves.dart`).
+- **Haptics** — `HapticService` gives light / selection / success feedback on taps.
+- **Glass** — `LiquidGlassContainer` for the floating tab bar and overlays.
 
 ---
 
-## Architecture & Project Structure
-
-The codebase follows a clean, feature-first modular layout powered by **GetX** for reactive state management, dependency injection, and named route transitions:
+## 🧱 Project structure
 
 ```text
 lib/
-├── controllers/          # Reactive GetX controllers (Atelier, Cart, Wishlist, Orders, Notifications)
+├── main.dart                 # Bootstrap: storage, controllers, theme, routes
+├── controllers/
+│   ├── atelier_controller.dart   # Catalog, filters, wishlist, bag, currency, soundscape
+│   ├── account_controller.dart   # Addresses, measurements, inbox, order history
+│   └── ...                       # Older controllers kept for the legacy screens
 ├── core/
-│   ├── constants/        # AppColors design tokens & AppTypography scales
-│   ├── theme/            # Light & Dark ThemeData definitions
-│   └── utils/            # HapticService & custom MotionCurves
-├── data/
-│   ├── mock/             # Curated multi-brand catalog, stories & campaign capsules
-│   └── models/           # Product, CartItem, CapsuleCollection, LookbookStory, Soundscape
-├── modules/              # 25+ self-contained feature modules
-│   ├── onboarding/       # Animated SILOU. splash screen
-│   ├── shell/            # Persistent navigation shell & floating soundscape bar
-│   ├── home/             # Stories, hero campaigns, flash deals & trending grids
-│   ├── product_detail/   # PDP + 360° turntable, fabric loupe, kinetic drape & tailor modals
-│   ├── cart/ & checkout/ # Bag, promo codes, packaging sheet & 3D unboxing simulation
-│   ├── search/           # Filterable search & visual search
-│   ├── try_on/           # Virtual mirror experience
-│   ├── runway/ & vault/  # Live runway, Nocturne Vault & VIP Club
-│   └── ...               # Archive, Authenticity, Concierge, Gifting, Journal, Salon, Wardrobe
-├── routes/               # Centralized GetX routes & page bindings
-├── shared/widgets/       # Reusable UI primitives (LiquidGlass, ProductCard, HapticButton)
-└── main.dart             # App bootstrap, edge-to-edge system UI & GetStorage initialization
+│   ├── constants/            # AppColors, AppTypography
+│   ├── theme/                # Light & dark ThemeData
+│   └── utils/                # HapticService, MotionCurves
+├── data/                     # Models + mock catalog
+├── modules/                  # One folder per feature
+│   ├── shell/                # Bottom tab bar (Home · Search · Bag · Wishlist · Profile)
+│   ├── home/  search/  product_detail/  cart/  checkout/  orders/
+│   ├── account/              # Addresses, measurements, inbox, order history
+│   └── try_on/  runway/  vault/  salon/  ...   # Atelier showcase screens
+├── routes/                   # Named routes (GetX)
+└── shared/widgets/           # LiquidGlass, product cards, haptic buttons, shimmer
+test/
+└── account_pages_test.dart   # Widget tests for the account pages
 ```
 
----
-
-## Tech Stack
-
-- **Framework:** Flutter (iOS, Android, Web, Desktop)
-- **Language:** Dart (`>=3.3.0 <4.0.0`)
-- **State Management & Routing:** `get` (`^4.6.6`)
-- **Local Persistence:** `get_storage` (`^2.1.1`)
-- **Typography & Icons:** `google_fonts` (`^6.3.0`), `cupertino_icons` (`^1.0.8`)
-- **Web Deployment:** Netlify (`netlify.toml` configured with SPA redirects and security headers)
+**State:** GetX (`Rx` values + `Obx`), with two app-wide controllers: `AtelierController` for
+shopping and `AccountController` for the user's account data.
 
 ---
 
-## Getting Started
+## 🚀 Getting started
 
-### Prerequisites
-- [Flutter SDK](https://docs.flutter.dev/get-started/install) (`>=3.3.0`)
-- Dart SDK (bundled with Flutter)
-- An iOS Simulator, Android Emulator, Chrome (for Web), or physical device
-
-### Installation & Run
+**Requirements:** Flutter SDK 3.x and a simulator, emulator, device or Chrome.
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/danishsary8/siluo.git
-cd siluo
-
-# 2. Install dependencies
-flutter pub get
-
-# 3. Run on your connected device or emulator
-flutter run
-
-# Or run directly in Chrome (Web)
-flutter run -d chrome
 ```
 
-### Production Web Build (Netlify)
+```bash
+cd siluo && flutter pub get
+```
+
+```bash
+flutter run            # or: flutter run -d chrome
+```
+
+### Checks
+
+```bash
+flutter analyze
+```
+
+```bash
+flutter test
+```
+
+### Web build (Netlify)
 
 ```bash
 flutter build web --release
 ```
 
-> **Try it in the app:** Head to the shopping bag and apply promo code **`SILOU20`** (20% off) or **`ATELIER15`** (15% off) to test the interactive discount flow.
+`netlify.toml` already publishes `build/web` with SPA redirects and security headers.
 
 ---
 
-## Author
+## 🧪 Try these
 
-**Danish Sary**
-- GitHub: [@danishsary8](https://github.com/danishsary8)
+- Promo codes in the bag: **`SILOU20`**, **`SAVE20`**, **`ATELIER15`**, **`WELCOME15`**
+- Profile → **Bespoke Measurements**: drag the sliders and watch your size change
+- Checkout → **Edit** address: pick another address, or add a new one
+- Home → 🔔 bell: open the inbox, swipe a message away, then tap **Undo**
+- Tap 🌙 on Home to switch to dark mode
+
+---
+
+## ⚠️ Notes
+
+- All data is mocked locally; nothing is sent to a server.
+- Some images load from Unsplash, so they need an internet connection.
 
 ---
 
 <div align="center">
-  <sub>Built with Flutter & GetX — Crafted for modern mobile commerce.</sub>
+
+**Made by [Danish Sary](https://github.com/danishsary8)** · Built with Flutter & GetX
+
 </div>

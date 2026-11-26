@@ -72,7 +72,6 @@ class ForgotPasswordView extends StatelessWidget {
                       child: AnimatedPrimaryButton(
                         text: 'Continue',
                         onTap: () {
-                          // TODO: Implement reset password logic
                           Get.toNamed(AppRoutes.resetSent);
                         },
                       ),

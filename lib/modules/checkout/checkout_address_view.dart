@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../account/atelier_address_book_view.dart';
 import '../../routes/app_routes.dart';
 
 class CheckoutAddressView extends StatefulWidget {
@@ -172,9 +173,7 @@ class _CheckoutAddressViewState extends State<CheckoutAddressView> {
                     foregroundColor: primary,
                     backgroundColor: Colors.white,
                   ),
-                  onPressed: () {
-                    // TODO: Navigate to an “Add Address” screen
-                  },
+                  onPressed: () => AddressFormSheet.show(context),
                 ),
               ),
             ),
