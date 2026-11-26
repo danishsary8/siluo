@@ -90,7 +90,7 @@ class _AtelierMonogramViewState extends State<AtelierMonogramView> {
     },
     {
       'name': 'Obsidian Tone-on-Tone',
-      'color': const Color(0xFF26262B),
+      'color': const Color(0xFF27223F),
     },
     {
       'name': 'Silver Thread',
@@ -227,7 +227,7 @@ class _AtelierMonogramViewState extends State<AtelierMonogramView> {
                 Container(
                   height: 180,
                   decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF17132C) : const Color(0xFFEBE8E1),
+                    color: isDark ? const Color(0xFF17132C) : const Color(0xFFECE8F8),
                     borderRadius: BorderRadius.circular(24),
                     border: Border.all(color: AppColors.champagneGold.withValues(alpha: 0.35)),
                     boxShadow: [

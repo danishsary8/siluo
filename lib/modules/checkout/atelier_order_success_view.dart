@@ -79,7 +79,7 @@ class _AtelierOrderSuccessViewState extends State<AtelierOrderSuccessView>
               const SizedBox(height: 32),
 
               Text(
-                'ORDER CONFIRMED',
+                'Order confirmed',
                 style: AppTypography.displayHero(
                   color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                 ),

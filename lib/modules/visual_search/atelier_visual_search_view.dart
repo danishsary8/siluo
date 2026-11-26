@@ -39,7 +39,7 @@ class _AtelierVisualSearchViewState extends State<AtelierVisualSearchView>
       'colors': [
         {'name': 'Obsidian Noir', 'color': Color(0xFF141416)},
         {'name': 'Charcoal Slate', 'color': Color(0xFF38373D)},
-        {'name': 'Warm Alabaster', 'color': Color(0xFFE8E5DF)},
+        {'name': 'Warm Alabaster', 'color': Color(0xFFE9E5F7)},
       ],
       'detectedTexture': 'Double-Faced 520gsm Melton Wool',
     },

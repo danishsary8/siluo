@@ -75,7 +75,7 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'FILTER & SORT',
+                          'Filter & sort',
                           style: AppTypography.sectionTitle(
                             color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                           ),
@@ -108,8 +108,9 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                       children: [
                         // Price Range
                         Text(
-                          'PRICE RANGE',
-                          style: AppTypography.microTag(
+                          'Price range',
+                          style: AppTypography.editorialHeading(
+                            fontSize: 20,
                             color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                           ),
                         ),
@@ -148,8 +149,9 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
 
                         // Size multi-select chips
                         Text(
-                          'SIZES',
-                          style: AppTypography.microTag(
+                          'Sizes',
+                          style: AppTypography.editorialHeading(
+                            fontSize: 20,
                             color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                           ),
                         ),
@@ -201,8 +203,9 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
 
                         // Sort By
                         Text(
-                          'SORT BY',
-                          style: AppTypography.microTag(
+                          'Sort by',
+                          style: AppTypography.editorialHeading(
+                            fontSize: 20,
                             color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                           ),
                         ),
@@ -484,11 +487,11 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'SCANNER',
+                                      'Visual search',
                                       style: AppTypography.microTag(color: AppColors.champagneGold),
                                     ),
                                     Text(
-                                      'Visual Moodboard',
+                                      'Search with a photo',
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -541,11 +544,11 @@ class _AtelierSearchViewState extends State<AtelierSearchView> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'AR FIT',
+                                      'Try it on',
                                       style: AppTypography.microTag(color: AppColors.champagneGold),
                                     ),
                                     Text(
-                                      'Virtual Mirror',
+                                      'Virtual mirror',
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(

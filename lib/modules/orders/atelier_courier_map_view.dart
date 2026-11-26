@@ -73,7 +73,7 @@ class _AtelierCourierMapViewState extends State<AtelierCourierMapView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF09090C),
+      backgroundColor: const Color(0xFF08070F),
       body: Stack(
         children: [
           // 1. High-Fashion Vector Map Canvas
@@ -493,7 +493,7 @@ class _HauteCoutureMapPainter extends CustomPainter {
 
     // 2. Parisian City Grid Lines (Haussmann Boulevards)
     final gridPaint = Paint()
-      ..color = const Color(0xFF1B1B22)
+      ..color = const Color(0xFF1D1836)
       ..strokeWidth = 1.2
       ..style = PaintingStyle.stroke;
 

@@ -240,7 +240,7 @@ class _AtelierConsultationSuiteViewState extends State<AtelierConsultationSuiteV
               width: 105,
               height: 145,
               decoration: BoxDecoration(
-                color: const Color(0xFF1B1B22),
+                color: const Color(0xFF1D1836),
                 borderRadius: BorderRadius.circular(18),
                 border: Border.all(
                   color: AppColors.champagneGold.withValues(alpha: 0.7),

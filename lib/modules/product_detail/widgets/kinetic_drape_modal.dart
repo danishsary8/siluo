@@ -133,7 +133,7 @@ class _KineticDrapeModalState extends State<KineticDrapeModal>
                 Container(
                   height: 310,
                   decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF161229) : const Color(0xFFF0EDE6),
+                    color: isDark ? const Color(0xFF161229) : const Color(0xFFF0EDFA),
                     borderRadius: BorderRadius.circular(28),
                     border: Border.all(
                       color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight,

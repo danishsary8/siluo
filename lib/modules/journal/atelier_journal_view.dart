@@ -609,7 +609,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
                 fontSize: _fontSize,
                 height: 1.7,
                 fontWeight: FontWeight.w400,
-                color: isDark ? const Color(0xFFD6D6DD) : const Color(0xFF2C2C30),
+                color: isDark ? const Color(0xFFD6D6DD) : const Color(0xFF2B2645),
               ),
             ),
 
@@ -704,7 +704,7 @@ class _AtelierJournalViewState extends State<AtelierJournalView> {
               fontSize: _fontSize,
               height: 1.7,
               fontWeight: FontWeight.w400,
-              color: isDark ? const Color(0xFFD6D6DD) : const Color(0xFF2C2C30),
+              color: isDark ? const Color(0xFFD6D6DD) : const Color(0xFF2B2645),
             ),
           ),
         ),

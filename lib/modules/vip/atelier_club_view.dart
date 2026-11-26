@@ -37,7 +37,7 @@ class _AtelierClubViewState extends State<AtelierClubView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF09090C),
+      backgroundColor: const Color(0xFF08070F),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

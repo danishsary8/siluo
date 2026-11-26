@@ -169,7 +169,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                                     height: 44,
                                     padding: const EdgeInsets.symmetric(horizontal: 14),
                                     decoration: BoxDecoration(
-                                      color: isDark ? const Color(0xFF17132C) : const Color(0xFFF7F6F3),
+                                      color: isDark ? const Color(0xFF17132C) : const Color(0xFFF5F3FD),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: TextField(
@@ -408,7 +408,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
               height: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
-                color: isDark ? const Color(0xFF242428) : const Color(0xFFF0EFEA),
+                color: isDark ? const Color(0xFF241F3A) : const Color(0xFFEFECF8),
               ),
               clipBehavior: Clip.antiAlias,
               child: Image.network(
@@ -514,7 +514,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                       // Quantity Stepper
                       Container(
                         decoration: BoxDecoration(
-                          color: isDark ? const Color(0xFF26262B) : const Color(0xFFF5F4F0),
+                          color: isDark ? const Color(0xFF27223F) : const Color(0xFFF3F1FB),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Row(

@@ -183,7 +183,7 @@ class _Turntable360ViewerState extends State<Turntable360Viewer> {
                   child: Container(
                     height: 330,
                     decoration: BoxDecoration(
-                      color: isDark ? const Color(0xFF131318) : const Color(0xFFF2EFE9),
+                      color: isDark ? const Color(0xFF15122A) : const Color(0xFFF2EFFB),
                       borderRadius: BorderRadius.circular(28),
                       border: Border.all(
                         color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight,

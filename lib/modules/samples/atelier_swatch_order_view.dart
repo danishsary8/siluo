@@ -54,7 +54,7 @@ class _AtelierSwatchOrderViewState extends State<AtelierSwatchOrderView> {
       provenance: 'Lanificio di Tollegno, Biella (Italy)',
       weight: '520 g/m²',
       handFeel: 'Structured, dense, dry-felted warmth',
-      baseColor: Color(0xFF1E1E22),
+      baseColor: Color(0xFF1E1A33),
     ),
     ArchivalTextile(
       id: 'sw_silk_charmeuse',
@@ -86,7 +86,7 @@ class _AtelierSwatchOrderViewState extends State<AtelierSwatchOrderView> {
       provenance: 'Manufacture Dentellière, Caudry (France)',
       weight: '120 g/m²',
       handFeel: 'Delicate openwork, raised silk cord relief',
-      baseColor: Color(0xFF26262B),
+      baseColor: Color(0xFF27223F),
     ),
     ArchivalTextile(
       id: 'sw_alpaca_shearling',
@@ -237,7 +237,7 @@ class _AtelierSwatchOrderViewState extends State<AtelierSwatchOrderView> {
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF17132C) : const Color(0xFFF3EFEA),
+                    color: isDark ? const Color(0xFF17132C) : const Color(0xFFF3F0FB),
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
                       color: AppColors.champagneGold.withValues(alpha: 0.35),

@@ -65,7 +65,7 @@ class _AtelierAcousticViewState extends State<AtelierAcousticView>
     final activeTrack = _tracks[_selectedTrackIndex];
 
     return Scaffold(
-      backgroundColor: const Color(0xFF09090C),
+      backgroundColor: const Color(0xFF08070F),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -227,7 +227,7 @@ class _AtelierAcousticViewState extends State<AtelierAcousticView>
                 margin: const EdgeInsets.only(bottom: 12),
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: isSelected ? const Color(0xFF181820) : const Color(0xFF111115),
+                  color: isSelected ? const Color(0xFF1A1630) : const Color(0xFF111115),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     color: isSelected

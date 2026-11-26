@@ -1074,7 +1074,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
               capsule.imageUrl,
               fit: BoxFit.cover,
               errorBuilder: (_, __, ___) => Container(
-                color: isDark ? const Color(0xFF202024) : const Color(0xFFE8E5DF),
+                color: isDark ? const Color(0xFF1F1B34) : const Color(0xFFE9E5F7),
               ),
               loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) return child;
@@ -1111,9 +1111,8 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                     child: Text(
                       capsule.tag,
                       style: const TextStyle(
-                        fontSize: 9,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.8,
+                        fontSize: 11,
+                        fontWeight: FontWeight.w700,
                         color: Colors.white,
                       ),
                     ),
@@ -1121,9 +1120,10 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                   const SizedBox(height: 6),
                   Text(
                     capsule.title,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w800,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppTypography.editorialHeading(
+                      fontSize: 28,
                       color: Colors.white,
                     ),
                   ),
@@ -1133,24 +1133,23 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 11,
+                      fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: Colors.white70,
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 10),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(18),
                     ),
                     child: Text(
                       capsule.ctaText,
                       style: const TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w800,
-                        letterSpacing: 0.5,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
                         color: AppColors.silouSecondary,
                       ),
                     ),

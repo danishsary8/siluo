@@ -244,7 +244,7 @@ class _AtelierHeritageArchiveViewState extends State<AtelierHeritageArchiveView>
                     decoration: BoxDecoration(
                       color: isSelected
                           ? AppColors.champagneGold
-                          : (isDark ? Colors.white.withValues(alpha: 0.05) : const Color(0xFFEFECE6)),
+                          : (isDark ? Colors.white.withValues(alpha: 0.05) : const Color(0xFFEFECF8)),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
                         color: isSelected
@@ -562,8 +562,8 @@ class _AtelierHeritageArchiveViewState extends State<AtelierHeritageArchiveView>
           blur: 16,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           color: isDark
-              ? const Color(0xFF181820).withValues(alpha: 0.6)
-              : const Color(0xFFF1EFEA).withValues(alpha: 0.9),
+              ? const Color(0xFF1A1630).withValues(alpha: 0.6)
+              : const Color(0xFFF1EFFA).withValues(alpha: 0.9),
           borderColor: AppColors.champagneGold.withValues(alpha: 0.3),
           child: Row(
             children: [
