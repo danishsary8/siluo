@@ -27,6 +27,8 @@ flutter:
 
   assets:
     - assets/images/
+    # Bundled Google Fonts (google_fonts uses these instead of fetching at runtime).
+    - assets/google_fonts/
 
   fonts:
     - family: Poppins

@@ -33,7 +33,7 @@ class AtelierWishlistView extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'NO SAVED PIECES YET',
+                    'No saved pieces yet',
                     style: AppTypography.sectionTitle(
                       color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                     ),
@@ -76,14 +76,14 @@ class AtelierWishlistView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'SAVED EDIT',
+                        'Your wishlist',
                         style: AppTypography.sectionTitle(
                           color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                         ),
                       ),
                       Text(
-                        '${wishlisted.length} PIECES',
-                        style: AppTypography.microTag(
+                        '${wishlisted.length} ${wishlisted.length == 1 ? 'piece' : 'pieces'}',
+                        style: AppTypography.headingMeta(
                           color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                         ),
                       ),

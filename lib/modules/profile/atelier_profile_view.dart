@@ -107,7 +107,7 @@ class AtelierProfileView extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Atelier Settings & Preferences Section
-            _buildSectionHeader('PREFERENCES & APPEARANCE', isDark),
+            _buildSectionHeader('Preferences', isDark),
             const SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
@@ -329,7 +329,7 @@ class AtelierProfileView extends StatelessWidget {
             // Order History Timeline
             Row(
               children: [
-                _buildSectionHeader('RECENT ORDERS', isDark),
+                _buildSectionHeader('Recent orders', isDark),
                 const Spacer(),
                 GestureDetector(
                   onTap: () {
@@ -377,7 +377,7 @@ class AtelierProfileView extends StatelessWidget {
             const SizedBox(height: 28),
 
             // Saved Addresses
-            _buildSectionHeader('SAVED ADDRESSES', isDark),
+            _buildSectionHeader('Saved addresses', isDark),
             const SizedBox(height: 10),
             Obx(() {
               final a = AccountController.to.defaultAddress;
@@ -458,7 +458,8 @@ class AtelierProfileView extends StatelessWidget {
   Widget _buildSectionHeader(String title, bool isDark) {
     return Text(
       title,
-      style: AppTypography.microTag(
+      style: AppTypography.editorialHeading(
+        fontSize: 22,
         color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
       ),
     );

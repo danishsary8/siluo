@@ -167,23 +167,6 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                     ],
                   ),
                 ),
-                const SizedBox(width: 8),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: AppColors.silouPrimary.withValues(alpha: 0.12),
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: const Text(
-                    'SHOPPING',
-                    style: TextStyle(
-                      fontSize: 9,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 1.0,
-                      color: AppColors.silouPrimary,
-                    ),
-                  ),
-                ),
               ],
             ),
             actions: [
@@ -618,11 +601,9 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                       const Icon(Icons.bolt, color: AppColors.silouPrimary, size: 22),
                       const SizedBox(width: 4),
                       Text(
-                        'FLASH DEALS',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w900,
-                          letterSpacing: 0.5,
+                        'Flash deals',
+                        style: AppTypography.editorialHeading(
+                          fontSize: 22,
                           color: isDark ? Colors.white : AppColors.silouSecondary,
                         ),
                       ),
@@ -685,11 +666,8 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'OFFICIAL BRANDS',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 0.8,
+                        'Official brands',
+                        style: AppTypography.editorialHeading(
                           color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                         ),
                       ),
@@ -825,12 +803,9 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 children: [
                   Obx(() => Text(
                         controller.selectedDepartment.value == 'All'
-                            ? 'ALL TRENDING STYLES'
-                            : '${controller.selectedDepartment.value.toUpperCase()} COLLECTION',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 0.6,
+                            ? 'Trending now'
+                            : '${controller.selectedDepartment.value} collection',
+                        style: AppTypography.editorialHeading(
                           color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                         ),
                       )),
@@ -841,10 +816,8 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
-                          '${controller.filteredProducts.length} ITEMS',
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w700,
+                          '${controller.filteredProducts.length} items',
+                          style: AppTypography.headingMeta(
                             color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                           ),
                         ),

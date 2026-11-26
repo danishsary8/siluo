@@ -63,7 +63,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'YOUR SHOPPING BAG IS EMPTY',
+                    'Your bag is empty',
                     style: AppTypography.sectionTitle(
                       color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                     ),
@@ -109,14 +109,14 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'SHOPPING BAG',
+                            'Your bag',
                             style: AppTypography.sectionTitle(
                               color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                             ),
                           ),
                           Text(
-                            '${controller.totalCartItemsCount} ITEMS',
-                            style: AppTypography.microTag(
+                            '${controller.totalCartItemsCount} ${controller.totalCartItemsCount == 1 ? 'item' : 'items'}',
+                            style: AppTypography.headingMeta(
                               color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                             ),
                           ),
@@ -156,8 +156,8 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'PROMOTION CODE',
-                              style: AppTypography.microTag(
+                              'Promo code',
+                              style: AppTypography.headingMeta(
                                 color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                               ),
                             ),
@@ -309,8 +309,8 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'ORDER TOTAL',
-                            style: AppTypography.microTag(
+                            'Order total',
+                            style: AppTypography.headingMeta(
                               color: isDark ? AppColors.textMutedDark : AppColors.textMuted,
                             ),
                           ),

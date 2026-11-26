@@ -54,7 +54,8 @@ class AtelierController extends GetxController {
     super.onInit();
     allProducts.assignAll(mockAtelierProducts);
     // Pre-populate some favorites for aesthetic discovery
-    wishlistProductIds.addAll(['atl_01', 'atl_02']);
+    // (seeded from real catalog IDs so the badge count matches the wishlist).
+    wishlistProductIds.addAll(mockAtelierProducts.skip(1).take(2).map((p) => p.id));
     // Pre-populate 1 cart item
     final trench = mockAtelierProducts.first;
     cartItems.add(

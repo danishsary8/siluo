@@ -91,7 +91,7 @@ class AtelierMeasurementsView extends StatelessWidget {
             );
           }),
           const SizedBox(height: 24),
-          AccountUi.sectionLabel(context, 'PREFERRED FIT'),
+          AccountUi.sectionLabel(context, 'Preferred fit'),
           Obx(() => Row(
                 children: [
                   for (final f in _fits)
@@ -131,7 +131,7 @@ class AtelierMeasurementsView extends StatelessWidget {
                 ],
               )),
           const SizedBox(height: 24),
-          AccountUi.sectionLabel(context, 'BODY (CM)'),
+          AccountUi.sectionLabel(context, 'Body (cm)'),
           Container(
             decoration: AccountUi.card(context),
             padding: const EdgeInsets.symmetric(vertical: 6),

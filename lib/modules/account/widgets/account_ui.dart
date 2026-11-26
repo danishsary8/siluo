@@ -42,8 +42,8 @@ class AccountUi {
         },
       ),
       title: Text(
-        title.toUpperCase(),
-        style: AppTypography.microTag(color: text(context)).copyWith(fontSize: 13),
+        title,
+        style: AppTypography.editorialHeading(color: text(context), fontSize: 22),
       ),
       actions: actions,
     );
@@ -62,7 +62,7 @@ class AccountUi {
 
   static Widget sectionLabel(BuildContext context, String label) => Padding(
         padding: const EdgeInsets.only(bottom: 10, top: 6),
-        child: Text(label, style: AppTypography.microTag(color: text(context))),
+        child: Text(label, style: AppTypography.editorialHeading(color: text(context), fontSize: 20)),
       );
 
   static void toast(String title, String message) {
