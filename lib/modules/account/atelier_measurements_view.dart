@@ -38,11 +38,7 @@ class AtelierMeasurementsView extends StatelessWidget {
             return Container(
               padding: const EdgeInsets.all(22),
               decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [AppColors.ctaDark, Color(0xFF3A2F25)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                gradient: AppColors.signatureGradient,
                 borderRadius: BorderRadius.circular(24),
               ),
               child: Row(
@@ -54,7 +50,7 @@ class AtelierMeasurementsView extends StatelessWidget {
                         const Text(
                           'YOUR SILOU SIZE',
                           style: TextStyle(
-                            color: AppColors.champagneGold,
+                            color: Colors.white,
                             fontSize: 11,
                             fontWeight: FontWeight.w800,
                             letterSpacing: 1.6,
@@ -63,7 +59,7 @@ class AtelierMeasurementsView extends StatelessWidget {
                         const SizedBox(height: 8),
                         Text(
                           '${account.preferredFit.value} fit • updated live',
-                          style: const TextStyle(color: Colors.white70, fontSize: 13),
+                          style: const TextStyle(color: Colors.white, fontSize: 13),
                         ),
                       ],
                     ),
@@ -78,7 +74,7 @@ class AtelierMeasurementsView extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(color: AppColors.champagneGold, width: 2),
+                        border: Border.all(color: Colors.white, width: 2),
                       ),
                       child: Text(
                         size,

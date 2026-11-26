@@ -488,7 +488,7 @@ class _AtelierSalonBookingViewState extends State<AtelierSalonBookingView> {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: isDark ? const Color(0xFF16161C) : const Color(0xFFF9F7F2),
+                color: isDark ? const Color(0xFF1A1631) : const Color(0xFFF5F2FF),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(color: AppColors.champagneGold.withValues(alpha: 0.4)),
               ),

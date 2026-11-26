@@ -102,7 +102,7 @@ class _AtelierConsultationSuiteViewState extends State<AtelierConsultationSuiteV
         : null;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF070709),
+      backgroundColor: const Color(0xFF07060F),
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -450,7 +450,7 @@ class _AtelierConsultationSuiteViewState extends State<AtelierConsultationSuiteV
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: AppColors.champagneGold,
-                                    foregroundColor: Colors.black,
+                                    foregroundColor: Colors.white,
                                     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(14),

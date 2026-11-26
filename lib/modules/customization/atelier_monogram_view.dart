@@ -156,7 +156,7 @@ class _AtelierMonogramViewState extends State<AtelierMonogramView> {
     return Container(
       constraints: BoxConstraints(maxHeight: size.height * 0.90),
       decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF0C0C0F) : AppColors.canvasLight,
+        color: isDark ? const Color(0xFF0C0A19) : AppColors.canvasLight,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
         border: Border.all(
           color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight,
@@ -227,7 +227,7 @@ class _AtelierMonogramViewState extends State<AtelierMonogramView> {
                 Container(
                   height: 180,
                   decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF141418) : const Color(0xFFEBE8E1),
+                    color: isDark ? const Color(0xFF17132C) : const Color(0xFFEBE8E1),
                     borderRadius: BorderRadius.circular(24),
                     border: Border.all(color: AppColors.champagneGold.withValues(alpha: 0.35)),
                     boxShadow: [

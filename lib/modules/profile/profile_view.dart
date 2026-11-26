@@ -12,7 +12,7 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF7F7FB),
+      backgroundColor: const Color(0xFFF3F0FF),
       appBar: AppBar(
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.white,
@@ -96,7 +96,7 @@ class ProfileView extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF2F2F6),
+                      color: const Color(0xFFEEEAFB),
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: const Icon(
@@ -224,7 +224,7 @@ class ProfileView extends StatelessWidget {
           width: 44,
           height: 44,
           decoration: BoxDecoration(
-            color: const Color(0xFFF2F2F6),
+            color: const Color(0xFFEEEAFB),
             borderRadius: BorderRadius.circular(14),
           ),
           child: Icon(icon, color: AppColors.primary),

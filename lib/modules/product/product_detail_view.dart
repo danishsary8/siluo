@@ -37,7 +37,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
     const primary = Color(0xFF7A5CF4);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF7F7FB),
+      backgroundColor: const Color(0xFFF3F0FF),
       appBar: AppBar(
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.white,
@@ -134,7 +134,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                               label: Text(size),
                               selected: isSelected,
                               selectedColor: primary,
-                              backgroundColor: const Color(0xFFF2F2F6),
+                              backgroundColor: const Color(0xFFEEEAFB),
                               labelStyle: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 color: isSelected ? Colors.white : Colors.black87,

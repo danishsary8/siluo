@@ -37,7 +37,7 @@ class _CheckoutAddressViewState extends State<CheckoutAddressView> {
     final primary = Theme.of(context).primaryColor;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF7F7FB),
+      backgroundColor: const Color(0xFFF3F0FF),
       appBar: AppBar(
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.white,

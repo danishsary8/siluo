@@ -61,7 +61,7 @@ class _Unboxing3dSimulationState extends State<Unboxing3dSimulation>
     return Container(
       height: size.height * 0.90,
       decoration: const BoxDecoration(
-        color: Color(0xFF0A0A0D),
+        color: Color(0xFF0B0917),
         borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
       ),
       clipBehavior: Clip.antiAlias,
@@ -147,7 +147,7 @@ class _Unboxing3dSimulationState extends State<Unboxing3dSimulation>
                         width: 290,
                         height: 340,
                         decoration: BoxDecoration(
-                          color: const Color(0xFF141418),
+                          color: const Color(0xFF17132C),
                           borderRadius: BorderRadius.circular(28),
                           border: Border.all(color: AppColors.champagneGold.withValues(alpha: 0.4)),
                           boxShadow: [
@@ -212,13 +212,13 @@ class _Unboxing3dSimulationState extends State<Unboxing3dSimulation>
           key: const ValueKey(0),
           width: double.infinity,
           height: double.infinity,
-          color: const Color(0xFF141418),
+          color: const Color(0xFF17132C),
           child: Stack(
             alignment: Alignment.center,
             children: [
               // Grosgrain Ribbon Cross
-              Container(width: 44, height: double.infinity, color: const Color(0xFF0A0A0D)),
-              Container(height: 44, width: double.infinity, color: const Color(0xFF0A0A0D)),
+              Container(width: 44, height: double.infinity, color: const Color(0xFF0B0917)),
+              Container(height: 44, width: double.infinity, color: const Color(0xFF0B0917)),
 
               // Gold Bowknot Emblem
               Container(
@@ -353,7 +353,7 @@ class _Unboxing3dSimulationState extends State<Unboxing3dSimulation>
         width: double.infinity,
         height: double.infinity,
         padding: const EdgeInsets.all(20),
-        color: const Color(0xFF141418),
+        color: const Color(0xFF17132C),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

@@ -15,7 +15,7 @@ class LoginView extends StatelessWidget {
     const primary = Color(0xFF7A5CF4);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF7F7FB),
+      backgroundColor: const Color(0xFFF3F0FF),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 20),

@@ -128,7 +128,7 @@ class _AtelierVirtualMirrorViewState extends State<AtelierVirtualMirrorView>
     final controller = AtelierController.to;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF070709),
+      backgroundColor: const Color(0xFF07060F),
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -240,7 +240,7 @@ class _AtelierVirtualMirrorViewState extends State<AtelierVirtualMirrorView>
                     _buildCircleButton(
                       icon: CupertinoIcons.camera_fill,
                       color: AppColors.champagneGold,
-                      iconColor: Colors.black,
+                      iconColor: Colors.white,
                       onTap: _captureSnapshot,
                     ),
                   ],

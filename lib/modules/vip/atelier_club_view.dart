@@ -81,7 +81,7 @@ class _AtelierClubViewState extends State<AtelierClubView> {
                     height: 210,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: const Color(0xFF16161B),
+                      color: const Color(0xFF1A1631),
                       borderRadius: BorderRadius.circular(24),
                       border: Border.all(
                         color: AppColors.champagneGold.withValues(alpha: 0.7),
@@ -223,7 +223,7 @@ class _AtelierClubViewState extends State<AtelierClubView> {
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: const Color(0xFF141418),
+              color: const Color(0xFF17132C),
               borderRadius: BorderRadius.circular(20),
               border: Border.all(color: Colors.white12),
             ),
@@ -291,7 +291,7 @@ class _AtelierClubViewState extends State<AtelierClubView> {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF131317),
+        color: const Color(0xFF161229),
         borderRadius: BorderRadius.circular(18),
         border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
       ),

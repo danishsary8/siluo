@@ -169,7 +169,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                                     height: 44,
                                     padding: const EdgeInsets.symmetric(horizontal: 14),
                                     decoration: BoxDecoration(
-                                      color: isDark ? const Color(0xFF141418) : const Color(0xFFF7F6F3),
+                                      color: isDark ? const Color(0xFF17132C) : const Color(0xFFF7F6F3),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: TextField(
@@ -493,7 +493,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
                               fontStyle: FontStyle.italic,
-                              color: isDark ? AppColors.champagneGold : const Color(0xFF7A6240),
+                              color: isDark ? AppColors.champagneGold : const Color(0xFF4B2FD6),
                             ),
                           ),
                         ],

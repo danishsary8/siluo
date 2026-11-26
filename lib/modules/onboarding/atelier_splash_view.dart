@@ -60,7 +60,7 @@ class _AtelierSplashViewState extends State<AtelierSplashView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.canvasDark,
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -74,7 +74,14 @@ class _AtelierSplashViewState extends State<AtelierSplashView>
             child: Image.network(
               'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=85',
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(color: Colors.black),
+              errorBuilder: (_, __, ___) => const DecoratedBox(
+                decoration: BoxDecoration(gradient: AppColors.signatureGradient),
+              ),
+              loadingBuilder: (context, child, progress) => progress == null
+                  ? child
+                  : const DecoratedBox(
+                      decoration: BoxDecoration(gradient: AppColors.signatureGradient),
+                    ),
             ),
           ),
 
@@ -85,9 +92,9 @@ class _AtelierSplashViewState extends State<AtelierSplashView>
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Colors.black.withValues(alpha: 0.3),
-                  Colors.transparent,
-                  Colors.black.withValues(alpha: 0.85),
+                  AppColors.canvasDark.withValues(alpha: 0.35),
+                  AppColors.champagneGold.withValues(alpha: 0.12),
+                  AppColors.canvasDark.withValues(alpha: 0.9),
                 ],
               ),
             ),
@@ -139,7 +146,7 @@ class _AtelierSplashViewState extends State<AtelierSplashView>
                         fontSize: 10,
                         letterSpacing: 2.5,
                         fontWeight: FontWeight.w700,
-                        color: AppColors.silouPrimary,
+                        color: Colors.white,
                       ),
                     ),
 

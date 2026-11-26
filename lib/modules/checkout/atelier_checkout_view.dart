@@ -373,7 +373,7 @@ class _AtelierCheckoutViewState extends State<AtelierCheckoutView> {
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF1B1B20) : const Color(0xFFF7F5F0),
+                    color: isDark ? const Color(0xFF1D1836) : const Color(0xFFF3F0FF),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Row(

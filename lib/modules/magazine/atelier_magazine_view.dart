@@ -547,7 +547,7 @@ class _AtelierMagazineViewState extends State<AtelierMagazineView>
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.champagneGold,
-                foregroundColor: Colors.black,
+                foregroundColor: Colors.white,
                 shape: const StadiumBorder(),
                 padding: const EdgeInsets.symmetric(horizontal: 16),
               ),

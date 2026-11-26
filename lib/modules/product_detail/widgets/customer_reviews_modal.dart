@@ -122,10 +122,10 @@ class CustomerReviewsModal extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: isDark ? AppColors.surfaceDark : const Color(0xFFF7F5F0),
+                    color: isDark ? AppColors.surfaceDark : const Color(0xFFF3F0FF),
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
-                      color: isDark ? AppColors.cardBorderDark : const Color(0xFFEADBCE),
+                      color: isDark ? AppColors.cardBorderDark : const Color(0xFFE7E2F8),
                     ),
                   ),
                   child: Column(

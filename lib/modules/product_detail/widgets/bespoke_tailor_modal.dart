@@ -130,10 +130,10 @@ class _BespokeTailorModalState extends State<BespokeTailorModal> {
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF141418) : const Color(0xFFF7F5F0),
+                    color: isDark ? const Color(0xFF17132C) : const Color(0xFFF3F0FF),
                     borderRadius: BorderRadius.circular(24),
                     border: Border.all(
-                      color: isDark ? AppColors.cardBorderDark : const Color(0xFFEADBCE),
+                      color: isDark ? AppColors.cardBorderDark : const Color(0xFFE7E2F8),
                     ),
                   ),
                   child: Row(
