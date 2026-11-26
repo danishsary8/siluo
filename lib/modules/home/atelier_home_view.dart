@@ -131,7 +131,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-          // 1. ZANDO Brand Header with live badges
+          // 1. SILOU Brand Header with live badges
           SliverAppBar(
             floating: true,
             pinned: false,
@@ -146,12 +146,12 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'ZANDO',
+                        text: 'SILOU',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w900,
                           letterSpacing: 2.0,
-                          color: isDark ? Colors.white : AppColors.zandoSecondary,
+                          color: isDark ? Colors.white : AppColors.silouSecondary,
                         ),
                       ),
                       const TextSpan(
@@ -159,7 +159,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         style: TextStyle(
                           fontSize: 26,
                           fontWeight: FontWeight.w900,
-                          color: AppColors.zandoPrimary,
+                          color: AppColors.silouPrimary,
                         ),
                       ),
                     ],
@@ -169,7 +169,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
-                    color: AppColors.zandoPrimary.withValues(alpha: 0.12),
+                    color: AppColors.silouPrimary.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: const Text(
@@ -178,7 +178,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                       fontSize: 9,
                       fontWeight: FontWeight.w800,
                       letterSpacing: 1.0,
-                      color: AppColors.zandoPrimary,
+                      color: AppColors.silouPrimary,
                     ),
                   ),
                 ),
@@ -190,7 +190,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 icon: Icon(
                   isDark ? CupertinoIcons.sun_max_fill : CupertinoIcons.moon_fill,
                   size: 20,
-                  color: isDark ? AppColors.zandoFlash : AppColors.ctaDark,
+                  color: isDark ? AppColors.silouFlash : AppColors.ctaDark,
                 ),
                 onPressed: controller.toggleDarkMode,
               ),
@@ -216,7 +216,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         child: Container(
                           padding: const EdgeInsets.all(4),
                           decoration: const BoxDecoration(
-                            color: AppColors.zandoPrimary,
+                            color: AppColors.silouPrimary,
                             shape: BoxShape.circle,
                           ),
                           child: Text(
@@ -254,7 +254,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         child: Container(
                           padding: const EdgeInsets.all(4),
                           decoration: const BoxDecoration(
-                            color: AppColors.zandoPrimary,
+                            color: AppColors.silouPrimary,
                             shape: BoxShape.circle,
                           ),
                           child: Text(
@@ -299,7 +299,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
                         decoration: BoxDecoration(
                           color: isSelected
-                              ? (isSale ? AppColors.saleRed : AppColors.zandoPrimary)
+                              ? (isSale ? AppColors.saleRed : AppColors.silouPrimary)
                               : (isDark ? AppColors.surfaceDark : AppColors.surfaceLight),
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
@@ -310,7 +310,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                           boxShadow: isSelected
                               ? [
                                   BoxShadow(
-                                    color: (isSale ? AppColors.saleRed : AppColors.zandoPrimary)
+                                    color: (isSale ? AppColors.saleRed : AppColors.silouPrimary)
                                         .withValues(alpha: 0.3),
                                     blurRadius: 8,
                                     offset: const Offset(0, 3),
@@ -429,13 +429,13 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                       child: Container(
                         padding: const EdgeInsets.all(6),
                         decoration: BoxDecoration(
-                          color: AppColors.zandoPrimary.withValues(alpha: 0.1),
+                          color: AppColors.silouPrimary.withValues(alpha: 0.1),
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(
                           CupertinoIcons.camera_fill,
                           size: 16,
-                          color: AppColors.zandoPrimary,
+                          color: AppColors.silouPrimary,
                         ),
                       ),
                     ),
@@ -471,8 +471,8 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                                 shape: BoxShape.circle,
                                 gradient: LinearGradient(
                                   colors: [
-                                    AppColors.zandoPrimary,
-                                    AppColors.zandoFlash,
+                                    AppColors.silouPrimary,
+                                    AppColors.silouFlash,
                                     Color(0xFFEC4899),
                                   ],
                                   begin: Alignment.topLeft,
@@ -543,7 +543,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                       height: 5,
                       decoration: BoxDecoration(
                         color: _activeHeroIndex == i
-                            ? AppColors.zandoPrimary
+                            ? AppColors.silouPrimary
                             : (isDark ? Colors.white24 : Colors.black12),
                         borderRadius: BorderRadius.circular(3),
                       ),
@@ -570,7 +570,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 ),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: AppColors.zandoPrimary.withValues(alpha: 0.3),
+                  color: AppColors.silouPrimary.withValues(alpha: 0.3),
                 ),
               ),
               child: Column(
@@ -578,7 +578,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.bolt, color: AppColors.zandoPrimary, size: 22),
+                      const Icon(Icons.bolt, color: AppColors.silouPrimary, size: 22),
                       const SizedBox(width: 4),
                       Text(
                         'FLASH DEALS',
@@ -586,7 +586,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                           fontSize: 16,
                           fontWeight: FontWeight.w900,
                           letterSpacing: 0.5,
-                          color: isDark ? Colors.white : AppColors.zandoSecondary,
+                          color: isDark ? Colors.white : AppColors.silouSecondary,
                         ),
                       ),
                       const Spacer(),
@@ -594,7 +594,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
-                          color: AppColors.zandoPrimary,
+                          color: AppColors.silouPrimary,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Row(
@@ -665,7 +665,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                               style: TextStyle(
                                 fontSize: 11,
                                 fontWeight: FontWeight.w600,
-                                color: AppColors.zandoPrimary,
+                                color: AppColors.silouPrimary,
                               ),
                             ),
                           );
@@ -750,7 +750,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         decoration: BoxDecoration(
                           color: isSelected
-                              ? AppColors.zandoPrimary
+                              ? AppColors.silouPrimary
                               : (isDark ? AppColors.surfaceDark : AppColors.surfaceLight),
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
@@ -851,7 +851,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                           child: const Text(
                             'Reset All Filters',
                             style: TextStyle(
-                              color: AppColors.zandoPrimary,
+                              color: AppColors.silouPrimary,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
@@ -962,7 +962,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
                     decoration: BoxDecoration(
-                      color: AppColors.zandoPrimary,
+                      color: AppColors.silouPrimary,
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: Text(
@@ -988,7 +988,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                       fontSize: 9,
                       fontWeight: FontWeight.w800,
                       letterSpacing: 0.5,
-                      color: AppColors.zandoPrimary,
+                      color: AppColors.silouPrimary,
                     ),
                   ),
                   Text(
@@ -1009,7 +1009,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         style: const TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w800,
-                          color: AppColors.zandoPrimary,
+                          color: AppColors.silouPrimary,
                         ),
                       ),
                       if (product.originalPrice != null) ...[
@@ -1095,7 +1095,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                     decoration: BoxDecoration(
-                      color: AppColors.zandoPrimary,
+                      color: AppColors.silouPrimary,
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: Text(
@@ -1141,7 +1141,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                         fontSize: 10,
                         fontWeight: FontWeight.w800,
                         letterSpacing: 0.5,
-                        color: AppColors.zandoSecondary,
+                        color: AppColors.silouSecondary,
                       ),
                     ),
                   ),

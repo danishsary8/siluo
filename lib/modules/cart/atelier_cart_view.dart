@@ -32,9 +32,9 @@ class _AtelierCartViewState extends State<AtelierCartView> {
     final success = controller.applyPromoCode(_promoCtrl.text);
     setState(() {
       if (success) {
-        _promoFeedback = '20% ZANDO VIP discount applied!';
+        _promoFeedback = '20% SILOU VIP discount applied!';
       } else {
-        _promoFeedback = 'Invalid promo code. Try "ZANDO20"';
+        _promoFeedback = 'Invalid promo code. Try "SILOU20"';
       }
     });
   }

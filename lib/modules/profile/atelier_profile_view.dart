@@ -70,26 +70,26 @@ class AtelierProfileView extends StatelessWidget {
                           margin: const EdgeInsets.only(top: 4),
                           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                           decoration: BoxDecoration(
-                            color: AppColors.zandoPrimary.withValues(alpha: 0.15),
+                            color: AppColors.silouPrimary.withValues(alpha: 0.15),
                             borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: AppColors.zandoPrimary, width: 0.8),
+                            border: Border.all(color: AppColors.silouPrimary, width: 0.8),
                           ),
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(CupertinoIcons.star_fill, size: 12, color: AppColors.zandoPrimary),
+                              Icon(CupertinoIcons.star_fill, size: 12, color: AppColors.silouPrimary),
                               SizedBox(width: 4),
                               Text(
-                                'ZANDO VIP (GOLD TIER)',
+                                'SILOU VIP (GOLD TIER)',
                                 style: TextStyle(
                                   fontSize: 9,
                                   fontWeight: FontWeight.w800,
                                   letterSpacing: 0.8,
-                                  color: AppColors.zandoPrimary,
+                                  color: AppColors.silouPrimary,
                                 ),
                               ),
                               SizedBox(width: 4),
-                              Icon(CupertinoIcons.chevron_right, size: 10, color: AppColors.zandoPrimary),
+                              Icon(CupertinoIcons.chevron_right, size: 10, color: AppColors.silouPrimary),
                             ],
                           ),
                         ),

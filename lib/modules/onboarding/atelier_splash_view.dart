@@ -111,7 +111,7 @@ class _AtelierSplashViewState extends State<AtelierSplashView>
                           text: const TextSpan(
                             children: [
                               TextSpan(
-                                text: 'ZANDO',
+                                text: 'SILOU',
                                 style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.w900,
@@ -124,7 +124,7 @@ class _AtelierSplashViewState extends State<AtelierSplashView>
                                 style: TextStyle(
                                   fontSize: 36,
                                   fontWeight: FontWeight.w900,
-                                  color: AppColors.zandoPrimary,
+                                  color: AppColors.silouPrimary,
                                 ),
                               ),
                             ],
@@ -139,7 +139,7 @@ class _AtelierSplashViewState extends State<AtelierSplashView>
                         fontSize: 10,
                         letterSpacing: 2.5,
                         fontWeight: FontWeight.w700,
-                        color: AppColors.zandoPrimary,
+                        color: AppColors.silouPrimary,
                       ),
                     ),
 
@@ -175,7 +175,7 @@ class _AtelierSplashViewState extends State<AtelierSplashView>
                       height: 54,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.zandoPrimary,
+                          backgroundColor: AppColors.silouPrimary,
                           foregroundColor: Colors.white,
                           elevation: 0,
                           shape: const StadiumBorder(),

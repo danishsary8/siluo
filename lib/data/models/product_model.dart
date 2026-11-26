@@ -38,7 +38,7 @@ class Product {
     required this.id,
     required this.title,
     required this.category,
-    this.brand = 'ZANDO',
+    this.brand = 'SILOU',
     this.gender = 'Women',
     required this.price,
     this.originalPrice,

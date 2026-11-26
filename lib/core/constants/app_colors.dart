@@ -18,17 +18,17 @@ abstract class AppColors {
   static const Color ctaDark = Color(0xFF1C1917);           // Deep Obsidian CTA
   static const Color champagneGold = Color(0xFFC5A880);     // Luxury Warm Gold
   static const Color champagneLight = Color(0xFFF7F3EE);    // Pale Gold Silk
-  static const Color saleRed = Color(0xFFE52E2E);           // Zando Vibrant Red
+  static const Color saleRed = Color(0xFFE52E2E);           // Silou Vibrant Red
   static const Color inStockGreen = Color(0xFF16A34A);      // In-stock Emerald
 
-  // Zando Signature Shopping Palette
-  static const Color zandoPrimary = Color(0xFFFF4838);      // Zando Energetic Coral
-  static const Color zandoSecondary = Color(0xFF0F172A);    // Modern Slate Onyx
-  static const Color zandoFlash = Color(0xFFFF9800);        // Flash Deal Amber
-  static const Color zandoBadgeBlue = Color(0xFF2563EB);    // Brand Badge Blue
-  static const Color zandoYellow = Color(0xFFFFC107);       // Star Rating Amber
-  static const Color zandoTagBg = Color(0xFFFEE2E2);        // Discount Tag Soft Red
-  static const Color zandoGreenBg = Color(0xFFDCFCE7);      // Free Shipping Soft Green
+  // Silou Signature Shopping Palette
+  static const Color silouPrimary = Color(0xFFFF4838);      // Silou Energetic Coral
+  static const Color silouSecondary = Color(0xFF0F172A);    // Modern Slate Onyx
+  static const Color silouFlash = Color(0xFFFF9800);        // Flash Deal Amber
+  static const Color silouBadgeBlue = Color(0xFF2563EB);    // Brand Badge Blue
+  static const Color silouYellow = Color(0xFFFFC107);       // Star Rating Amber
+  static const Color silouTagBg = Color(0xFFFEE2E2);        // Discount Tag Soft Red
+  static const Color silouGreenBg = Color(0xFFDCFCE7);      // Free Shipping Soft Green
 
   // Canvas & Backgrounds (Dark Mode)
   static const Color canvasDark = Color(0xFF0E0E10);        // Obsidian Canvas

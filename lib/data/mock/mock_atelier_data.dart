@@ -4,7 +4,7 @@ import '../models/capsule_collection.dart';
 import '../models/lookbook_story.dart';
 
 // ==========================================
-// ZANDO PROMOTIONAL STORIES (Circular Feed)
+// SILOU PROMOTIONAL STORIES (Circular Feed)
 // ==========================================
 final List<LookbookStory> mockStories = [
   const LookbookStory(
@@ -50,7 +50,7 @@ final List<LookbookStory> mockStories = [
 ];
 
 // ==========================================
-// ZANDO HIGH-CONVERSION HERO CAMPAIGN BANNERS
+// SILOU HIGH-CONVERSION HERO CAMPAIGN BANNERS
 // ==========================================
 final List<CapsuleCollection> mockCapsules = [
   const CapsuleCollection(
@@ -88,7 +88,7 @@ final List<CapsuleCollection> mockCapsules = [
 ];
 
 // ==========================================
-// COMPLETE ZANDO SHOPPING CATALOG (24 ITEMS)
+// COMPLETE SILOU SHOPPING CATALOG (24 ITEMS)
 // Real consumer brands, high-res multi-angle images
 // ==========================================
 final List<Product> mockAtelierProducts = [

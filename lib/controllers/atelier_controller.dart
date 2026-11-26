@@ -259,8 +259,8 @@ class AtelierController extends GetxController {
   bool applyPromoCode(String code) {
     HapticService.selection();
     final cleanCode = code.trim().toUpperCase();
-    if (cleanCode == 'ZANDO20' || cleanCode == 'SAVE20') {
-      promoCode.value = 'ZANDO20';
+    if (cleanCode == 'SILOU20' || cleanCode == 'SAVE20') {
+      promoCode.value = 'SILOU20';
       discountPercent.value = 0.20;
       return true;
     } else if (cleanCode == 'ATELIER15' || cleanCode == 'WELCOME15') {

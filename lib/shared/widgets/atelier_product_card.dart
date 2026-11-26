@@ -166,11 +166,11 @@ class _AtelierProductCardState extends State<AtelierProductCard>
                                   padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
                                   margin: const EdgeInsets.only(bottom: 4),
                                   decoration: BoxDecoration(
-                                    color: AppColors.zandoPrimary,
+                                    color: AppColors.silouPrimary,
                                     borderRadius: BorderRadius.circular(6),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: AppColors.zandoPrimary.withValues(alpha: 0.3),
+                                        color: AppColors.silouPrimary.withValues(alpha: 0.3),
                                         blurRadius: 4,
                                         offset: const Offset(0, 2),
                                       ),
@@ -190,7 +190,7 @@ class _AtelierProductCardState extends State<AtelierProductCard>
                                 Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2.5),
                                   decoration: BoxDecoration(
-                                    color: AppColors.zandoFlash,
+                                    color: AppColors.silouFlash,
                                     borderRadius: BorderRadius.circular(6),
                                   ),
                                   child: const Row(
@@ -292,7 +292,7 @@ class _AtelierProductCardState extends State<AtelierProductCard>
                           // Rating & Reviews row
                           Row(
                             children: [
-                              const Icon(Icons.star_rounded, size: 14, color: AppColors.zandoYellow),
+                              const Icon(Icons.star_rounded, size: 14, color: AppColors.silouYellow),
                               const SizedBox(width: 2),
                               Text(
                                 widget.product.rating.toStringAsFixed(1),
@@ -328,7 +328,7 @@ class _AtelierProductCardState extends State<AtelierProductCard>
                                             fontSize: 16,
                                             fontWeight: FontWeight.w800,
                                             letterSpacing: -0.2,
-                                            color: AppColors.zandoPrimary,
+                                            color: AppColors.silouPrimary,
                                           ),
                                         )),
                                     if (widget.product.originalPrice != null)

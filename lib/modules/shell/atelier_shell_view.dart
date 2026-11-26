@@ -197,7 +197,7 @@ class _AtelierShellViewState extends State<AtelierShellView>
         ),
         decoration: BoxDecoration(
           color: isActive
-              ? AppColors.zandoPrimary
+              ? AppColors.silouPrimary
               : Colors.transparent,
           borderRadius: BorderRadius.circular(24),
         ),
@@ -235,7 +235,7 @@ class _AtelierShellViewState extends State<AtelierShellView>
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
                   decoration: BoxDecoration(
-                    color: AppColors.zandoPrimary,
+                    color: AppColors.silouPrimary,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(

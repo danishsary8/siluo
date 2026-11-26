@@ -234,7 +234,7 @@ class _AtelierPdpViewState extends State<AtelierPdpView>
                                 fontSize: 12,
                                 fontWeight: FontWeight.w900,
                                 letterSpacing: 1.0,
-                                color: AppColors.zandoPrimary,
+                                color: AppColors.silouPrimary,
                               ),
                             ),
                           ),
