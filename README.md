@@ -25,6 +25,16 @@ brands, boutiques and multi-brand retailers** who want to sell online with a pre
 editorial feel. Shoppers can discover new drops, try styles on, personalise pieces,
 check out and track orders, all from one app.
 
+### 🏬 What kind of store is it?
+
+| Question | Answer |
+| :--- | :--- |
+| **Store model** | **One store brand, SILOU**, selling curated pieces from many fashion brands (Zara, Nike, Levi's, Mango…). Closest to **Zalando, ASOS or Farfetch**. |
+| **Marketplace?** | **No.** It's not like Taobao or Shopee. Shoppers buy from SILOU and can't list or sell their own items. |
+| **Online or physical?** | **Online first** (mobile app + web). A few flagship salons (Paris, Milan, London, Tokyo) are only for booking in-person fittings, not separate branch stores. |
+| **Products** | **Brand-new, 100% original items only.** No second-hand pieces and no replicas or "grade" copies. Each premium piece comes with a digital authenticity passport. |
+| **Real company?** | No. SILOU is a demo/portfolio brand built to showcase the app. |
+
 It has two layers:
 
 1. **The shop:** home feed, search & filters, product pages, wishlist, bag, promo codes, checkout and order tracking.
