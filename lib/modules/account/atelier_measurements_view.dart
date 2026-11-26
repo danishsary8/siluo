@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../controllers/account_controller.dart';
 import '../../core/constants/app_colors.dart';
+import '../../core/constants/app_typography.dart';
 import '../../core/utils/haptic_service.dart';
 import 'widgets/account_ui.dart';
 
@@ -47,14 +48,9 @@ class AtelierMeasurementsView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'YOUR SILOU SIZE',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 11,
-                            fontWeight: FontWeight.w800,
-                            letterSpacing: 1.6,
-                          ),
+                        Text(
+                          'Your size',
+                          style: AppTypography.editorialHeading(color: Colors.white, fontSize: 26),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -221,6 +217,7 @@ class _MeasurementRow extends StatelessWidget {
                 inactiveTrackColor: AccountUi.border(context),
                 thumbColor: AppColors.champagneGold,
                 overlayColor: AppColors.champagneGold.withValues(alpha: 0.15),
+                tickMarkShape: SliderTickMarkShape.noTickMark,
               ),
               child: Slider(
                 value: value.clamp(min, max),

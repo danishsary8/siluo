@@ -87,6 +87,11 @@ class _AtelierInboxViewState extends State<AtelierInboxView> {
                       label: Text(e.value),
                       selected: _filter == e.key,
                       showCheckmark: false,
+                      backgroundColor: AccountUi.surface(context),
+                      side: BorderSide(
+                        color: _filter == e.key ? Colors.transparent : AccountUi.border(context),
+                      ),
+                      shape: const StadiumBorder(),
                       selectedColor: AccountUi.dark(context) ? AppColors.champagneGold : AppColors.ctaDark,
                       labelStyle: TextStyle(
                         fontWeight: FontWeight.w600,
