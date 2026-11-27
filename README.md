@@ -1,18 +1,27 @@
 <div align="center">
 
-# SILOU<span style="color:#FF4838;">.</span>
+<img src="portfolio/cover/banner.jpg" alt="SILOU app screens: search, product page, home, checkout and live courier map" width="100%" />
 
-**A fashion & streetwear shopping app, built with Flutter.**  
-*Frontend complete · backend coming next*
+# SILOU<span style="color:#FF4D3D;">.</span>
 
-[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
-[![Dart](https://img.shields.io/badge/Dart-%3E%3D3.3-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
-[![GetX](https://img.shields.io/badge/GetX-4.6-8A2BE2?style=for-the-badge)](https://pub.dev/packages/get)
-[![Platforms](https://img.shields.io/badge/iOS%20·%20Android%20·%20Web-111827?style=for-the-badge)](#-getting-started)
-[![Live demo](https://img.shields.io/badge/Live%20demo-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://silou-fashion.netlify.app)
-[![Status](https://img.shields.io/badge/Status-Frontend%20only-FF4D3D?style=for-the-badge)](#-current-status-frontend-only)
+**A premium fashion & streetwear shopping app, built with Flutter.**
+<br/>
+<sub>Frontend complete · backend coming next</sub>
 
-*Browse → try on → personalise → check out → track. Every screen is interactive.*
+<br/>
+
+<a href="https://silou-fashion.netlify.app"><img src="https://img.shields.io/badge/▶%20Try%20the%20live%20demo-FF4D3D?style=for-the-badge" alt="Try the live demo" /></a>
+
+<br/><br/>
+
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=flat-square&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-%3E%3D3.3-0175C2?style=flat-square&logo=dart&logoColor=white)](https://dart.dev)
+[![GetX](https://img.shields.io/badge/GetX-4.6-8A2BE2?style=flat-square)](https://pub.dev/packages/get)
+[![Platforms](https://img.shields.io/badge/iOS%20·%20Android%20·%20Web-16112F?style=flat-square)](#-getting-started)
+[![Tests](https://img.shields.io/badge/tests-57%20passing-12A150?style=flat-square)](#tests)
+[![Status](https://img.shields.io/badge/status-frontend%20only-6E4BFF?style=flat-square)](#-current-status-frontend-only)
+
+<sub><b>Browse</b> → <b>try on</b> → <b>personalise</b> → <b>check out</b> → <b>track</b>. Every screen is interactive.</sub>
 
 </div>
 
@@ -54,6 +63,19 @@ demoed before any server work begins.
 
 The goal is to grow SILOU into a real, production store by connecting it to a backend.
 See the [Roadmap](#-roadmap) for what's planned.
+
+---
+
+## 📸 Screens
+
+<table>
+<tr><td align="center" width="25%"><img src="portfolio/screens/m-home.webp" alt="Home" width="200"/><br/><sub><b>Home</b><br/>Stories, campaigns, flash deals</sub></td><td align="center" width="25%"><img src="portfolio/screens/m-search.webp" alt="Search" width="200"/><br/><sub><b>Search</b><br/>Filters, visual search, try-on</sub></td><td align="center" width="25%"><img src="portfolio/screens/m-product.webp" alt="Product page" width="200"/><br/><sub><b>Product page</b><br/>Gallery, sizes, feature tools</sub></td><td align="center" width="25%"><img src="portfolio/screens/m-bag.webp" alt="Bag" width="200"/><br/><sub><b>Bag</b><br/>Promo codes, live totals</sub></td></tr>
+<tr><td align="center" width="25%"><img src="portfolio/screens/m-checkout.webp" alt="Checkout" width="200"/><br/><sub><b>Checkout</b><br/>Address, packaging, payment</sub></td><td align="center" width="25%"><img src="portfolio/screens/m-order-confirmed.webp" alt="Order confirmed" width="200"/><br/><sub><b>Order confirmed</b><br/>Order number & delivery window</sub></td><td align="center" width="25%"><img src="portfolio/screens/m-order-tracking.webp" alt="Order tracking" width="200"/><br/><sub><b>Order tracking</b><br/>Delivery milestones</sub></td><td align="center" width="25%"><img src="portfolio/screens/m-courier-map.webp" alt="Live courier" width="200"/><br/><sub><b>Live courier</b><br/>Real-time route map</sub></td></tr>
+<tr><td align="center" width="25%"><img src="portfolio/screens/m-inbox.webp" alt="Inbox" width="200"/><br/><sub><b>Inbox</b><br/>Filters, read state, undo</sub></td><td align="center" width="25%"><img src="portfolio/screens/m-measurements.webp" alt="Measurements" width="200"/><br/><sub><b>Measurements</b><br/>Live size recommendation</sub></td><td align="center" width="25%"><img src="portfolio/screens/m-turntable-360.webp" alt="360° view" width="200"/><br/><sub><b>360° view</b><br/>Turn the piece around</sub></td><td align="center" width="25%"><img src="portfolio/screens/m-monogram.webp" alt="Monogram studio" width="200"/><br/><sub><b>Monogram studio</b><br/>Personalise a piece</sub></td></tr>
+<tr><td align="center" width="25%"><img src="portfolio/screens/m-salon-booking.webp" alt="Salon booking" width="200"/><br/><sub><b>Salon booking</b><br/>Book an in-person fitting</sub></td><td align="center" width="25%"><img src="portfolio/screens/m-vip-club.webp" alt="VIP club" width="200"/><br/><sub><b>VIP club</b><br/>Membership & perks</sub></td><td></td><td></td></tr>
+</table>
+
+<p align="center"><sub>Captured from the real Flutter web build with its built-in demo data. See <a href="portfolio/overview.jpg">all screens on one page</a>.</sub></p>
 
 ---
 
