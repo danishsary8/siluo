@@ -1,11 +1,11 @@
 {
-    "name": "clothing_app",
-    "short_name": "clothing_app",
+    "name": "SILOU",
+    "short_name": "SILOU",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#0C0A19",
+    "theme_color": "#F7F5FF",
+    "description": "SILOU \u2014 fashion, streetwear & footwear shopping.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

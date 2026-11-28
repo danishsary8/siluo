@@ -10,6 +10,7 @@ import '../../data/models/cart_item_model.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../../shared/widgets/editorial_shimmer_box.dart';
 import '../checkout/atelier_checkout_view.dart';
+import '../../shared/widgets/auth_gate.dart';
 
 class AtelierCartView extends StatefulWidget {
   const AtelierCartView({super.key});
@@ -336,7 +337,7 @@ class _AtelierCartViewState extends State<AtelierCartView> {
                             ),
                             onPressed: () {
                               HapticService.light();
-                              Get.to(() => const AtelierCheckoutView());
+                              AuthGate.open(() => const AtelierCheckoutView(), reason: 'Sign in to check out securely');
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,

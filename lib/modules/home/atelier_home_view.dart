@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../controllers/account_controller.dart';
 import '../../controllers/atelier_controller.dart';
 import '../account/atelier_inbox_view.dart';
+import '../../shared/widgets/auth_gate.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/network/load_status.dart';
 import '../../shared/widgets/load_error_view.dart';
@@ -206,7 +207,7 @@ class _AtelierHomeViewState extends State<AtelierHomeView> {
                       ),
                       onPressed: () {
                         HapticService.light();
-                        Get.to<void>(() => const AtelierInboxView());
+                        AuthGate.open(() => const AtelierInboxView(), reason: 'Sign in to read your messages');
                       },
                     ),
                     if (unread > 0)

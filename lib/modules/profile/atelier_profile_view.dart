@@ -17,6 +17,9 @@ import '../archive/atelier_heritage_archive_view.dart';
 import '../journal/atelier_journal_view.dart';
 import '../concierge/atelier_consultation_suite_view.dart';
 import '../../controllers/account_controller.dart';
+import '../../controllers/auth_controller.dart';
+import '../../shared/widgets/auth_gate.dart';
+import '../auth/atelier_auth_view.dart';
 import '../account/atelier_address_book_view.dart';
 import '../account/atelier_inbox_view.dart';
 import '../account/atelier_measurements_view.dart';
@@ -38,8 +41,11 @@ class AtelierProfileView extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(24, 16, 24, 110),
           physics: const BouncingScrollPhysics(),
           children: [
-            // Editorial Header & User Info
-            Row(
+            // Editorial Header & User Info (guest invite when signed out)
+            Obx(() {
+              final user = AuthController.to.user.value;
+              if (user == null) return _GuestWelcomeCard(isDark: isDark);
+              return Row(
               children: [
                 Container(
                   padding: const EdgeInsets.all(3),
@@ -47,10 +53,12 @@ class AtelierProfileView extends StatelessWidget {
                     shape: BoxShape.circle,
                     border: Border.all(color: AppColors.champagneGold, width: 1.5),
                   ),
-                  child: const CircleAvatar(
+                  child: CircleAvatar(
                     radius: 34,
-                    backgroundImage: NetworkImage(
-                      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+                    backgroundColor: AppColors.champagneGold.withValues(alpha: 0.14),
+                    child: Text(
+                      user.initials,
+                      style: AppTypography.sectionTitle(color: AppColors.champagneGold),
                     ),
                   ),
                 ),
@@ -60,7 +68,9 @@ class AtelierProfileView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Sary Danish',
+                        user.name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: AppTypography.sectionTitle(
                           color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
                         ),
@@ -69,7 +79,7 @@ class AtelierProfileView extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           HapticService.light();
-                          Get.to(() => const AtelierClubView());
+                          AuthGate.open(() => const AtelierClubView());
                         },
                         child: Container(
                           margin: const EdgeInsets.only(top: 4),
@@ -103,7 +113,8 @@ class AtelierProfileView extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
+            );
+            }),
             const SizedBox(height: 32),
 
             // Atelier Settings & Preferences Section
@@ -159,7 +170,7 @@ class AtelierProfileView extends StatelessWidget {
                     isDark: isDark,
                     onTap: () {
                       HapticService.selection();
-                      Get.to(() => const AtelierClubView());
+                      AuthGate.open(() => const AtelierClubView(), reason: 'Sign in to see your membership');
                     },
                     trailing: const Icon(CupertinoIcons.chevron_right, size: 16, color: Colors.grey),
                   ),
@@ -171,7 +182,7 @@ class AtelierProfileView extends StatelessWidget {
                     isDark: isDark,
                     onTap: () {
                       HapticService.selection();
-                      Get.to(() => const AtelierWardrobeView());
+                      AuthGate.open(() => const AtelierWardrobeView(), reason: 'Sign in to open your wardrobe');
                     },
                     trailing: const Icon(CupertinoIcons.chevron_right, size: 16, color: Colors.grey),
                   ),
@@ -183,7 +194,7 @@ class AtelierProfileView extends StatelessWidget {
                     isDark: isDark,
                     onTap: () {
                       HapticService.selection();
-                      Get.to(() => const NocturneVaultView());
+                      AuthGate.open(() => const NocturneVaultView(), reason: 'Members only — sign in to enter');
                     },
                     trailing: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
@@ -211,7 +222,7 @@ class AtelierProfileView extends StatelessWidget {
                     isDark: isDark,
                     onTap: () {
                       HapticService.selection();
-                      Get.to(() => const AtelierPassportView());
+                      AuthGate.open(() => const AtelierPassportView(), reason: 'Sign in to view your certificates');
                     },
                     trailing: const Icon(CupertinoIcons.chevron_right, size: 16, color: Colors.grey),
                   ),
@@ -223,7 +234,7 @@ class AtelierProfileView extends StatelessWidget {
                     isDark: isDark,
                     onTap: () {
                       HapticService.selection();
-                      Get.to(() => const AtelierSalonBookingView());
+                      AuthGate.open(() => const AtelierSalonBookingView(), reason: 'Sign in to book a fitting');
                     },
                     trailing: const Icon(CupertinoIcons.chevron_right, size: 16, color: Colors.grey),
                   ),
@@ -235,7 +246,7 @@ class AtelierProfileView extends StatelessWidget {
                     isDark: isDark,
                     onTap: () {
                       HapticService.selection();
-                      Get.to(() => const AtelierConsultationSuiteView());
+                      AuthGate.open(() => const AtelierConsultationSuiteView(), reason: 'Sign in to book a video session');
                     },
                     trailing: const Icon(CupertinoIcons.chevron_right, size: 16, color: Colors.grey),
                   ),
@@ -283,7 +294,7 @@ class AtelierProfileView extends StatelessWidget {
                         isDark: isDark,
                         onTap: () {
                           HapticService.light();
-                          Get.to<void>(() => const AtelierMeasurementsView());
+                          AuthGate.open(() => const AtelierMeasurementsView(), reason: 'Sign in to save your measurements');
                         },
                       )),
                   const Divider(height: 1),
@@ -296,7 +307,7 @@ class AtelierProfileView extends StatelessWidget {
                       isDark: isDark,
                       onTap: () {
                         HapticService.light();
-                        Get.to<void>(() => const AtelierInboxView());
+                        AuthGate.open(() => const AtelierInboxView(), reason: 'Sign in to read your messages');
                       },
                       trailing: unread == 0
                           ? null
@@ -326,6 +337,12 @@ class AtelierProfileView extends StatelessWidget {
             ),
             const SizedBox(height: 28),
 
+            // Personal sections only make sense once signed in.
+            Obx(() {
+              if (!AuthController.to.isSignedIn) return const SizedBox.shrink();
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
             // Order History Timeline
             Row(
               children: [
@@ -334,7 +351,7 @@ class AtelierProfileView extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     HapticService.light();
-                    Get.to<void>(() => const AtelierOrderHistoryView());
+                    AuthGate.open(() => const AtelierOrderHistoryView(), reason: 'Sign in to see your orders');
                   },
                   child: const Text(
                     'View all',
@@ -379,7 +396,7 @@ class AtelierProfileView extends StatelessWidget {
             // Saved Addresses
             _buildSectionHeader('Saved addresses', isDark),
             const SizedBox(height: 10),
-            Obx(() {
+            Builder(builder: (_) {
               final a = AccountController.to.defaultAddress;
               final count = AccountController.to.addresses.length;
               return Material(
@@ -388,7 +405,7 @@ class AtelierProfileView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   onTap: () {
                     HapticService.light();
-                    Get.to<void>(() => const AtelierAddressBookView());
+                    AuthGate.open(() => const AtelierAddressBookView(), reason: 'Sign in to manage addresses');
                   },
                   child: Ink(
                     padding: const EdgeInsets.all(18),
@@ -433,6 +450,9 @@ class AtelierProfileView extends StatelessWidget {
                 ),
               );
             }),
+                ],
+              );
+            }),
             const SizedBox(height: 36),
 
             // Sign Out / Concierge
@@ -449,10 +469,46 @@ class AtelierProfileView extends StatelessWidget {
                 ),
               ),
             ),
+            Obx(() {
+              if (!AuthController.to.isSignedIn) return const SizedBox.shrink();
+              return Center(
+                child: TextButton.icon(
+                  onPressed: () => _confirmSignOut(context),
+                  icon: const Icon(CupertinoIcons.square_arrow_right, size: 18, color: AppColors.saleRed),
+                  label: const Text(
+                    'Sign out',
+                    style: TextStyle(color: AppColors.saleRed, fontWeight: FontWeight.w600),
+                  ),
+                ),
+              );
+            }),
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _confirmSignOut(BuildContext context) async {
+    HapticService.light();
+    final ok = await showCupertinoDialog<bool>(
+      context: context,
+      builder: (ctx) => CupertinoAlertDialog(
+        title: const Text('Sign out?'),
+        content: const Text('Your bag stays on this device. Sign in again any time.'),
+        actions: [
+          CupertinoDialogAction(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('Cancel'),
+          ),
+          CupertinoDialogAction(
+            isDestructiveAction: true,
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Sign out'),
+          ),
+        ],
+      ),
+    );
+    if (ok == true) AuthController.to.signOut();
   }
 
   Widget _buildSectionHeader(String title, bool isDark) {
@@ -521,7 +577,7 @@ class AtelierProfileView extends StatelessWidget {
     return InkWell(
       onTap: () {
         HapticService.selection();
-        Get.to(() => AtelierOrderTrackingView(orderId: orderId));
+        AuthGate.open(() => AtelierOrderTrackingView(orderId: orderId), reason: 'Sign in to track this order');
       },
       child: Padding(
         padding: const EdgeInsets.all(18),
@@ -592,4 +648,134 @@ class AtelierProfileView extends StatelessWidget {
     ),
   );
 }
+}
+
+
+/// Shown at the top of Account for guests: a clear, friendly invitation to
+/// sign in or join, matching the editorial cards below it.
+class _GuestWelcomeCard extends StatelessWidget {
+  const _GuestWelcomeCard({required this.isDark});
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight;
+    final muted = isDark ? AppColors.textMutedDark : AppColors.textMuted;
+
+    Widget perk(IconData icon, String label) => Expanded(
+          child: Column(
+            children: [
+              Icon(icon, size: 20, color: AppColors.champagneGold),
+              const SizedBox(height: 6),
+              Text(
+                label,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: muted, height: 1.3),
+              ),
+            ],
+          ),
+        );
+
+    return Container(
+      decoration: BoxDecoration(
+        gradient: AppColors.signatureGradient,
+        borderRadius: BorderRadius.circular(24),
+      ),
+      padding: const EdgeInsets.all(1.5),
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 18),
+        decoration: BoxDecoration(
+          color: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
+          borderRadius: BorderRadius.circular(22.5),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 52,
+                  height: 52,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppColors.champagneGold.withValues(alpha: 0.12),
+                  ),
+                  child: const Icon(CupertinoIcons.person_crop_circle, size: 28, color: AppColors.champagneGold),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Hello, guest', style: AppTypography.sectionTitle(color: text)),
+                      Text(
+                        'Sign in or join to unlock your account',
+                        style: TextStyle(fontSize: 12.5, color: muted),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 18),
+            Row(
+              children: [
+                perk(CupertinoIcons.cube_box, 'Track\norders'),
+                perk(CupertinoIcons.heart, 'Synced\nwishlist'),
+                perk(CupertinoIcons.bolt, 'Faster\ncheckout'),
+                perk(CupertinoIcons.star, 'VIP\nperks'),
+              ],
+            ),
+            const SizedBox(height: 18),
+            Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 48,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.silouPrimary,
+                        foregroundColor: Colors.white,
+                        elevation: 0,
+                        shape: const StadiumBorder(),
+                      ),
+                      onPressed: () {
+                        HapticService.selection();
+                        AuthGate.showAuth(mode: AuthMode.register);
+                      },
+                      child: const Text(
+                        'JOIN FREE',
+                        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800, letterSpacing: 0.8, color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: SizedBox(
+                    height: 48,
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: text,
+                        side: BorderSide(color: isDark ? AppColors.cardBorderDark : AppColors.cardBorderLight, width: 1.2),
+                        shape: const StadiumBorder(),
+                      ),
+                      onPressed: () {
+                        HapticService.selection();
+                        AuthGate.showAuth();
+                      },
+                      child: Text(
+                        'SIGN IN',
+                        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800, letterSpacing: 0.8, color: text),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

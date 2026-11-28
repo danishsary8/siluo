@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'controllers/account_controller.dart';
+import 'controllers/auth_controller.dart';
 import 'core/network/api_client.dart';
 import 'data/mock/mock_api_client.dart';
 import 'data/repositories/account_repository.dart';
@@ -46,6 +47,7 @@ void main() async {
   // Replace MockApiClient with an HTTP ApiClient once the backend is live
   // (see docs/API.md); nothing else needs to change.
   final ApiClient api = MockApiClient();
+  Get.put(AuthController());
   Get.put(AtelierController(repository: CatalogRepository(api)));
   Get.put(AccountController(repository: AccountRepository(api)));
 
@@ -69,6 +71,10 @@ class AtelierApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
+      // iOS-style slide + edge swipe-back on every pushed page, so the
+      // installed web app navigates like a native one.
+      defaultTransition: Transition.cupertino,
+      popGesture: true,
       initialRoute: AppRoutes.splash,
       getPages: AppPages.pages,
     );

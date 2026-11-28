@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/atelier_controller.dart';
 import '../../core/constants/app_colors.dart';
+import '../../shared/widgets/auth_gate.dart';
 import '../../shared/widgets/liquid_glass_container.dart';
 import '../../shared/widgets/persistent_soundscape_bar.dart';
 
@@ -46,7 +47,15 @@ class _AtelierShellViewState extends State<AtelierShellView>
     _bounceWorker = ever(controller.bagBounceTrigger, (_) {
       _bagBounceController.forward(from: 0.0);
     });
+
+    // Gentle "create an account" reminder for guests once they've had a
+    // moment to browse (at most every few days, never while on another page).
+    Future<void>.delayed(const Duration(seconds: 12), () {
+      if (!mounted || !(ModalRoute.of(context)?.isCurrent ?? false)) return;
+      AuthGate.maybeNudge(context);
+    });
   }
+
 
   @override
   void dispose() {
@@ -68,7 +77,14 @@ class _AtelierShellViewState extends State<AtelierShellView>
       AtelierProfileView(),
     ];
 
-    return Scaffold(
+    // Back gesture / hardware back on a secondary tab returns to Home first,
+    // like a native tab bar app, instead of leaving the app.
+    return Obx(() => PopScope(
+      canPop: controller.currentTabIndex.value == 0,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) controller.switchTab(0);
+      },
+      child: Scaffold(
       extendBody: true,
       backgroundColor: isDark ? AppColors.canvasDark : AppColors.canvasLight,
       body: Obx(() => IndexedStack(
@@ -82,7 +98,8 @@ class _AtelierShellViewState extends State<AtelierShellView>
           _buildGlassNavigationBar(context, controller, isDark),
         ],
       ),
-    );
+    ),
+    ));
   }
 
   Widget _buildGlassNavigationBar(

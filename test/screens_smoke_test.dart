@@ -1,4 +1,5 @@
 import 'package:clothing_app/controllers/account_controller.dart';
+import 'package:clothing_app/controllers/auth_controller.dart';
 import 'package:clothing_app/controllers/atelier_controller.dart';
 import 'package:clothing_app/core/theme/app_theme.dart';
 import 'package:clothing_app/data/mock/mock_atelier_data.dart';
@@ -21,7 +22,10 @@ import 'package:clothing_app/modules/vault/nocturne_vault_view.dart';
 import 'package:clothing_app/modules/vip/atelier_club_view.dart';
 import 'package:clothing_app/modules/visual_search/atelier_visual_search_view.dart';
 import 'package:clothing_app/modules/wardrobe/atelier_wardrobe_view.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -51,10 +55,20 @@ void main() {
     'Swatch order': () => const AtelierSwatchOrderView(),
   };
 
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    final dir = Directory.systemTemp.createTempSync('silou_test');
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
+      const MethodChannel('plugins.flutter.io/path_provider'),
+      (_) async => dir.path,
+    );
+  });
+
   setUp(() {
     Get.testMode = true;
     Get.put(AtelierController());
     Get.put(AccountController());
+    Get.put(AuthController());
   });
   tearDown(Get.reset);
 

@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/utils/haptic_service.dart';
 import '../shell/atelier_shell_view.dart';
+import '../../controllers/auth_controller.dart';
+import '../../shared/widgets/auth_gate.dart';
 
 class AtelierSplashView extends StatefulWidget {
   const AtelierSplashView({super.key});
@@ -55,6 +57,12 @@ class _AtelierSplashViewState extends State<AtelierSplashView>
       transition: Transition.fadeIn,
       duration: const Duration(milliseconds: 600),
     );
+  }
+
+  Future<void> _onSignIn() async {
+    HapticService.selection();
+    final ok = await AuthGate.showAuth();
+    if (ok && mounted) _onEnter();
   }
 
   @override
@@ -199,7 +207,26 @@ class _AtelierSplashViewState extends State<AtelierSplashView>
                         ),
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 6),
+                    // Returning shoppers can sign in straight away.
+                    if (!AuthController.to.isSignedIn)
+                      TextButton(
+                        onPressed: _onSignIn,
+                        child: Text.rich(
+                          TextSpan(
+                            text: 'Already a member? ',
+                            style: TextStyle(fontSize: 13, color: Colors.white.withValues(alpha: 0.8)),
+                            children: const [
+                              TextSpan(
+                                text: 'Sign in',
+                                style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white, decoration: TextDecoration.underline, decorationColor: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    else
+                      const SizedBox(height: 10),
                   ],
                 ),
               ),
